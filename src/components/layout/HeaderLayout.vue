@@ -161,7 +161,7 @@ export default {
     left: 0%;
 }
 .pc_menu.on {
-    display: block !important;
+    display: block !important; 
 }
 .pc_menu.off {
     display: none !important;
