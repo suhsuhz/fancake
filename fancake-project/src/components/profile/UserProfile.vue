@@ -395,7 +395,7 @@ export default {
             }
 
             await this.$store.dispatch('POST_PROFILE_ARTIST', artistObj);
-            this.$showLoadingBar(false);
+            this.$showLoadingBar(false); 
 
             const error = this.actionGetError;
             if(Object.keys(error).length < 1) this.$router.go(); // 에러가 없으면 종료
