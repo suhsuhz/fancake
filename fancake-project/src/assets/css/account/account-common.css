@@ -1,0 +1,44 @@
+/*logo area content*/
+.account-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 60%;
+    height: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.account-container .content-area {
+    width: 100%;
+}
+.account-container .logo {
+    margin-bottom: 20px;
+}
+.account-container .logo img {
+    height: 60px;
+    margin: 0 auto;
+}
+
+.account-container .content-area .account-area {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 2px 5px 8px rgba(150, 149, 150, 0.2);
+    padding: 20px 30px;
+}
+
+.bottom {
+    height: calc( 60px + 20px); /* logo height + logo margin bottom*/
+}
+
+@media screen and (max-width:768px) {
+    .account-container {
+        width: 90%;
+    }
+    .account-container .logo img {
+        height: 50px;
+    }
+    .bottom {
+        height: calc( 50px + 20px); /* logo height + logo margin bottom*/
+    }
+}
