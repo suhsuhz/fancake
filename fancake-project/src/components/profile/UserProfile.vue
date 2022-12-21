@@ -245,11 +245,7 @@ export default {
         // 닉네임 정보 값 변경
         setNickInfo(event) {
             const result = this.getNameAndValue(event)
-<<<<<<< HEAD
             this.nick = result.value;
-=======
-            this.nick[result.name] = result.value;
->>>>>>> 909cbd124ccdd95d389d143fdba8a2bb396f02f6
         },
         // 아티스트 기본정보 값 변경
         setArtistInfo(event) {
@@ -351,7 +347,7 @@ export default {
 
             await this.$store.dispatch('POST_USER_NICK', obj);
             this.$showLoadingBar(false);
-            
+
             const error = this.actionGetError;
             if(Object.keys(error).length < 1) return; // 에러가 없으면 종료
             if(error['nick']) this.errorMsg.nick = error['nick'][0];
@@ -402,11 +398,7 @@ export default {
             this.$showLoadingBar(false);
 
             const error = this.actionGetError;
-<<<<<<< HEAD
             if(Object.keys(error).length < 1) this.$router.go(); // 에러가 없으면 종료
-=======
-            if(Object.keys(error).length < 1) return; // 에러가 없으면 종료
->>>>>>> 909cbd124ccdd95d389d143fdba8a2bb396f02f6
             
             if(error['team-name']) this.errorMsg.artist.teamName = error['team-name'][0];
             if(error['phone-number']) this.errorMsg.artist.phoneNumber = error['phone-number'][0];
