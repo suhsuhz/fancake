@@ -33,7 +33,7 @@ export default {
             commit('SET_LOGIN_ERROR', error);
         })
     },
-    POST_LOGOUT({ commit }, data) {
+    /* POST_LOGOUT({ commit }, data) {
         return axiosPost(data, process.env.VUE_APP_URL_SET_LOGOUT)
         .then(res => {
             if(process.env.NODE_ENV === process.env.VUE_APP_MODE_DEV) console.log(res);
@@ -43,6 +43,9 @@ export default {
         .catch(error => {
             commit('SET_ERROR', error);
         })
+    }, */
+    POST_LOGOUT({ commit }) {
+        commit('SET_LOGOUT');// 로그아웃 설정
     },
 
     /* * PROFILE * */

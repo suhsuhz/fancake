@@ -34,7 +34,7 @@
                             <li :class="[$style.border]"></li>
                             <li>내용4</li>
                             <li>내용5</li>
-                            <li class="cur-pointer">로그아웃</li>
+                            <li class="cur-pointer" @click="logout">로그아웃</li>
                         </ul>
                     </div>
                 </div>
@@ -116,11 +116,15 @@ export default {
             this.pcMenuCss = "off";
         },
         logout: async function() {
+            if(!confirm('로그아웃 하시겠습니까?')) return;
             await this.$store.dispatch('POST_LOGOUT');
 
             const error = this.actionGetError;
-            if(Object.keys(error).length < 1) this.$router.replace('/Main'); // 에러가 없으면 메인으로 보내주기
-
+            if(Object.keys(error).length < 1) {
+                //this.$router.replace('/Main'); // 에러가 없으면 메인으로 보내주기
+                location.replace('/Main');
+                return;
+            }
             alert("로그아웃중 오류가 발생했습니다.");
         }
     }

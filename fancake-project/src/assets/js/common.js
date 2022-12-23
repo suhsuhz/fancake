@@ -1,7 +1,7 @@
 function setLocalStorage(name, obj) {
     const objString = JSON.stringify(obj);
-    obj.timestamp = new Date().getTime();
-    //console.log(obj);
+    //objString.timestamp = new Date().getTime();
+    //console.log(objString);
     window.localStorage.setItem(name, objString);
 }
 

@@ -7,6 +7,7 @@ import AccountView from '../views/AccountView.vue';
 import PolicyView from '../views/PolicyView.vue';
 import ProfileView from '../views/ProfileView.vue';
 import MainView from '../views/MainView.vue';
+import ProductView from '../views/ProductView.vue';
 
 /* ** components ** */
 // Account
@@ -19,6 +20,7 @@ import Privacy from '@/components/policy/PrivacyPolicy.vue';
 // Profile
 import User from '@/components/profile/UserProfile.vue';
 import Artist from '@/components/profile/ArtistProfile.vue';
+// product 
 
 Vue.use(VueRouter);
 
@@ -62,6 +64,11 @@ export const router = new VueRouter({
                 { path: 'User', component: User },
                 { path: 'Artist', component: Artist }
             ]
+        },
+        // 프로덕트 페이지
+        {
+            path: '/Product',
+            component: ProductView,
         }
     ]
 });
