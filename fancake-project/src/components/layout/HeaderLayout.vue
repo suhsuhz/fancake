@@ -28,13 +28,13 @@
                     <div id="pcMenu" class="cur-pointer" :class="[$style.my]" @mouseover="openPcMenu" @mouseleave="closePcMenu">
                         <span>계정</span><img src="@/assets/images/common/ic_arrow_down.png" alt="구분선" />
                         <ul class="pc_menu" :class="[$style.my_list, pcMenuCss]">
-                            <li>내용1</li>
-                            <li>내용2</li>
+                            <li><router-link to="/Profile/User">유저 정보</router-link></li>
+                            <li><router-link to="/Profile/Artist">아티스트 정보</router-link></li>
                             <li>내용3</li>
                             <li :class="[$style.border]"></li>
                             <li>내용4</li>
                             <li>내용5</li>
-                            <li class="cur-pointer" @click="logout">로그아웃</li>
+                            <li class="cur-pointer" @click="logout">{{ login.text }}</li>
                         </ul>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
                         <img :class="[$style.close]" src="@/assets/images/common/ic_close.png" alt="닫기" @click="closeMobileMenu"/>
                     </article>
                     <article :class="[$style.sub]">
-                        <span class="bt-white" :class="[$style.button]">로그인</span>
+                        <span class="bt-white" :class="[$style.button]" @click="logout">{{ login.text }}</span>
                         <span class="bt-white" :class="[$style.button]">마이메뉴</span>
                     </article>
                     <article :class="[$style.content]">
@@ -83,7 +83,7 @@
 </template>
 
 <script>
-import { jsonStringfy } from "@/assets/js/common.js";
+import { jsonStringfy, isLogin } from "@/assets/js/common.js";
 
 export default {
     computed: {
@@ -93,10 +93,14 @@ export default {
     },
     data() {
         return {
-           //$style: useCssModule(),
-           mobileMenuCss: "mobile_menu_remove",
-           mobileBackgroundCss: "",
-           pcMenuCss: "off"
+            //$style: useCssModule(),
+            mobileMenuCss: "mobile_menu_remove",
+            mobileBackgroundCss: "",
+            pcMenuCss: "off",
+            login: {
+                isLogin: isLogin(),
+                text: (isLogin()) ? "로그아웃" : "로그인",
+            } 
         }
     },
     methods: {
@@ -111,21 +115,16 @@ export default {
         openPcMenu: function() {
             this.pcMenuCss = "on";
         },
-        closePcMenu: function(e) {
-            console.log(e.target.id);
+        closePcMenu: function() {
             this.pcMenuCss = "off";
         },
         logout: async function() {
-            if(!confirm('로그아웃 하시겠습니까?')) return;
-            await this.$store.dispatch('POST_LOGOUT');
-
-            const error = this.actionGetError;
-            if(Object.keys(error).length < 1) {
-                //this.$router.replace('/Main'); // 에러가 없으면 메인으로 보내주기
-                location.replace('/Main');
+            if(!isLogin()) { // 로그인 로직
+                this.$router.push('/Login');
                 return;
             }
-            alert("로그아웃중 오류가 발생했습니다.");
+            if(!confirm('로그아웃 하시겠습니까?')) return;
+            this.$logout();
         }
     }
 }

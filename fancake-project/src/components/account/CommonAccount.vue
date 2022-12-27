@@ -1,7 +1,7 @@
 <template>
     <div class="account-container">
         <div class="logo">
-            <img src="@/assets/images/common/head_logo.png" alt="myfancake 로고"/>
+            <router-link to="/Main"><img src="@/assets/images/common/head_logo.png" alt="myfancake 로고"/></router-link>
         </div>
         <div class="content-area">
             <!-- <login-account></login-account> -->

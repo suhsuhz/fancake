@@ -108,6 +108,9 @@ export default {
         this.artist.phoneNumber = this.actionTeamProfile.phoneNumber;
         this.artist.description = this.actionTeamProfile.description;
     },
+    destroyed() {
+        this.$loginTimeUpdate();
+    },
     data() {
         return {
             isDragged: false,

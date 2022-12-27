@@ -15,6 +15,9 @@ import IndexMain from '../components/main/IndexMain.vue';
 
 export default {
   components: { HeaderLayout, FooterLayout, IndexMain },
+  destroyed() {
+    this.$loginTimeUpdate();
+  },
 }
 </script>
 
@@ -22,6 +25,7 @@ export default {
 .background_color {
   background-color: #fff;
 }
+
 .wrapper {
   width: 100%;
   margin: 0 auto;

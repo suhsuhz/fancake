@@ -1,12 +1,14 @@
 function setLocalStorage(name, obj) {
-    const objString = JSON.stringify(obj);
-    //objString.timestamp = new Date().getTime();
-    //console.log(objString);
-    window.localStorage.setItem(name, objString);
+    window.localStorage.setItem(name, obj);
 }
 
 function setUserLocalStorage(obj) {
-    setLocalStorage('user', obj);
+    const nowTime = new Date().getTime();
+    obj.time_stamp = nowTime;
+    const objString = JSON.stringify(obj);
+    setLocalStorage('user', objString);
+    
+    setLocalStorage('loginTime', nowTime);
 }
 
 function getUserInfo() {
@@ -20,6 +22,13 @@ function getLocalStorage(name) {
 
 function clearLocalStorage() {
     window.localStorage.clear();
+}
+
+// 로그인 여부
+function isLogin() {
+    const userInfo = getLocalStorage('user');
+    if(userInfo && userInfo.access_token) return true;
+    return false;
 }
 
 // json 파싱
@@ -76,9 +85,11 @@ export {
     setLocalStorage,
     setUserLocalStorage,
     getUserInfo,
+    getLocalStorage,
     jsonStringfy,
     checkMathFileType,
     getFileWidthHeight,
     setPathUrl,
-    clearLocalStorage
+    clearLocalStorage,
+    isLogin
 }

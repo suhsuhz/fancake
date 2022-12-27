@@ -20,12 +20,17 @@ const config = {
 
 // API 함수 정리
 function login(formData) {
-    console.log(`${config.baseUrl}${process.env.VUE_APP_URL_SET_LOGIN}`);
-    //return axios.get(`${config.baseUrl}login`, params: data, config.headers)
     return axios({
         method:'post',
         url:`${config.baseUrl}${process.env.VUE_APP_URL_SET_LOGIN}`,
         data: formData,
+        headers: config.headers
+    });
+}
+function logout() {
+    return axios({
+        method:'post',
+        url:`${config.baseUrl}${process.env.VUE_APP_URL_SET_LOGOUT}`,
         headers: config.headers
     });
 }
@@ -81,6 +86,7 @@ function axiosDelete(data, url) {
 
 export {
     login,
+    logout,
     axiosGet,
     axiosPost,
     axiosDelete,

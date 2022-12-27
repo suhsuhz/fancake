@@ -183,6 +183,9 @@ export default {
             return this.$store.state.profile; 
         }
     },
+    created() {
+        this.$autoLogout();
+    },
     async mounted() {
         this.$showLoadingBar(true);
         await this.$store.dispatch('FETCH_PROFILE_USER');
@@ -190,6 +193,9 @@ export default {
         this.profile.name = this.actionUserProfile.name;
         this.profile.email = this.actionUserProfile.email;
         this.nick = this.actionUserProfile.nick;
+    },
+    destroyed() {
+        this.$loginTimeUpdate();
     },
     data() {
         return {

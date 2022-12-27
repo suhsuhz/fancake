@@ -1,13 +1,6 @@
-import { getUserInfo } from '@/assets/js/common.js';
-import { axiosGet, axiosPost, axiosfileSubmit, login } from '@/api/index.js'
+import { axiosGet, axiosPost, axiosfileSubmit, login, logout } from '@/api/index.js'
 
 export default {
-    // ******************* //
-    // ****** user ******  //
-    // ******************* //
-    FETCH_USER_TOKEN({ commit }) {
-        commit('SET_USER_INFO', getUserInfo());
-    },
 
     /* * JOIN * */
     POST_JOIN({ commit }, data) {
@@ -26,15 +19,15 @@ export default {
         return login(data)
         .then(res => {
             if(process.env.NODE_ENV === process.env.VUE_APP_MODE_DEV) console.log(res);
-            commit('SET_LOGIN', res.data);// 로그아웃 설정
+            commit('SET_LOGIN', res.data);// 로그인 설정
             commit('CLEAR_ERROR');
         })
         .catch(error => {
             commit('SET_LOGIN_ERROR', error);
         })
     },
-    /* POST_LOGOUT({ commit }, data) {
-        return axiosPost(data, process.env.VUE_APP_URL_SET_LOGOUT)
+    POST_LOGOUT({ commit }) {
+        return logout()
         .then(res => {
             if(process.env.NODE_ENV === process.env.VUE_APP_MODE_DEV) console.log(res);
             commit('SET_LOGOUT');// 로그아웃 설정
@@ -43,11 +36,10 @@ export default {
         .catch(error => {
             commit('SET_ERROR', error);
         })
-    }, */
-    POST_LOGOUT({ commit }) {
-        commit('SET_LOGOUT');// 로그아웃 설정
     },
-
+    /* POST_LOGOUT({ commit }) {
+        commit('SET_LOGOUT');// 로그아웃 설정
+    }, */
     /* * PROFILE * */
     FETCH_PROFILE_USER({ commit }) {
         return axiosGet(process.env.VUE_APP_URL_GET_USER_PROFILE)

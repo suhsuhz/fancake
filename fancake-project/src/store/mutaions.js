@@ -34,9 +34,6 @@ export default {
     SET_LOGOUT() {
         clearLocalStorage();
     },
-    SET_USER_INFO(state, userInfo) { // state로 값을 넘기려면 state를 무조건 인자로 넣어야 함
-        state.userInfo = userInfo;
-    },
     /* *** USER PROFILE *** */
     SET_PROFILE_IMAGE(state, profileImage) {
         state.profile.imageLink = setPathUrl(profileImage);

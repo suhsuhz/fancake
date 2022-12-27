@@ -7,14 +7,14 @@
 <script>
 // components
 import CommonAccount from '../components/account/CommonAccount.vue';
+import { isLogin } from '@/assets/js/common.js'
 
 export default {
   components: {
     CommonAccount
   },
   created() {
-    this.$store.dispatch('FETCH_USER_TOKEN');
-    if (this.$store.state.userInfo && this.$store.state.userInfo.access_token) {
+    if(isLogin()) {
       this.$router.replace('/Main');
     }
   }
