@@ -1,5 +1,5 @@
 <template>
-  <div class="background">
+  <div class="background" >
     <common-policy></common-policy>
   </div>
 </template>

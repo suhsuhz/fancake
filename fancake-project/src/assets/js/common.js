@@ -1,32 +1,53 @@
 function setLocalStorage(name, obj) {
     window.localStorage.setItem(name, obj);
 }
-
-function setUserLocalStorage(obj) {
-    const nowTime = new Date().getTime();
-    obj.time_stamp = nowTime;
-    const objString = JSON.stringify(obj);
-    setLocalStorage('user', objString);
-    
-    setLocalStorage('loginTime', nowTime);
-}
-
-function getUserInfo() {
-    return getLocalStorage('user');
-}
-
 function getLocalStorage(name) {
     const objString = window.localStorage.getItem(name);
     return JSON.parse(objString);
 }
-
 function clearLocalStorage() {
     window.localStorage.clear();
 }
 
+function setSessionStorage(name, obj) {
+    window.sessionStorage.setItem(name, obj);
+}
+function getSessionStorage(name) {
+    const objString = window.sessionStorage.getItem(name);
+    return JSON.parse(objString);
+}
+function clearSessionStorage() {
+    window.sessionStorage.clear();
+}
+
+
+function setUserLoginStorage(obj) {
+    const nowTime = new Date().getTime();
+    obj.time_stamp = nowTime;
+    const objString = JSON.stringify(obj);
+
+    if(getLocalStorage('isSaveLogin') == true) { // 로그인 유지 선택했을 때만 local에 값 저장
+        setLocalStorage('user', objString);
+        setLocalStorage('loginTime', nowTime);
+    }
+    
+    setSessionStorage('user',objString);
+}
+
+function getUserInfo() {
+    return getSessionStorage('user');
+}
+
 // 로그인 여부
 function isLogin() {
-    const userInfo = getLocalStorage('user');
+    const localUserInfo = getLocalStorage('user');
+    const userInfo = getSessionStorage('user');
+
+    if(localUserInfo && localUserInfo.access_token && !userInfo) {
+        setSessionStorage('user', JSON.stringify(localUserInfo)); // local에 정보가 저장되어 있으면 로그인 유지하는 상태임
+        return true;
+    }
+
     if(userInfo && userInfo.access_token) return true;
     return false;
 }
@@ -83,7 +104,9 @@ async function getUploadFileInfo(reader) {
 
 export {
     setLocalStorage,
-    setUserLocalStorage,
+    setUserLoginStorage,
+    getSessionStorage,
+    clearSessionStorage,
     getUserInfo,
     getLocalStorage,
     jsonStringfy,

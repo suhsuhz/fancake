@@ -1,4 +1,4 @@
-import { setPathUrl, clearLocalStorage, setUserLocalStorage } from '@/assets/js/common.js';
+import { setPathUrl, clearLocalStorage, clearSessionStorage, setUserLoginStorage } from '@/assets/js/common.js';
 
 export default {
     SET_ERROR(state, error) {
@@ -29,10 +29,11 @@ export default {
             user_name: data.user_name,
             user_email: data.user_email
         }
-        setUserLocalStorage(obj);
+        setUserLoginStorage(obj);
     },
     SET_LOGOUT() {
         clearLocalStorage();
+        clearSessionStorage();
     },
     /* *** USER PROFILE *** */
     SET_PROFILE_IMAGE(state, profileImage) {

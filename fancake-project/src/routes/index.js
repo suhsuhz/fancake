@@ -30,6 +30,14 @@ export const router = new VueRouter({
     routes: [
         // 404
         { path: '*', component: PageNotFound },
+        {
+            path: '/',
+            component: MainView,
+            children: [
+                { path: '/', component: MainView }, // 기본
+            ]
+
+        },
         // main
         {   path: '/Main', 
             component: MainView,

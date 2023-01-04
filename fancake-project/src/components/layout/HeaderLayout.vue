@@ -14,7 +14,7 @@
                         <router-link to="/Main" class="cur-pointer">About</router-link>
                     </li>
                     <li>
-                        <router-link to="/Main" class="cur-pointer">Product</router-link>
+                        <router-link to="/Product" class="cur-pointer">Product</router-link>
                     </li>
                 </ul>
                 <div :class="[$style.menu_list]">
@@ -28,12 +28,9 @@
                     <div id="pcMenu" class="cur-pointer" :class="[$style.my]" @mouseover="openPcMenu" @mouseleave="closePcMenu">
                         <span>계정</span><img src="@/assets/images/common/ic_arrow_down.png" alt="구분선" />
                         <ul class="pc_menu" :class="[$style.my_list, pcMenuCss]">
-                            <li><router-link to="/Profile/User">유저 정보</router-link></li>
-                            <li><router-link to="/Profile/Artist">아티스트 정보</router-link></li>
-                            <li>내용3</li>
+                            <li><router-link to="/Profile/User">유저</router-link></li>
+                            <li><router-link to="/Profile/Artist">아티스트</router-link></li>
                             <li :class="[$style.border]"></li>
-                            <li>내용4</li>
-                            <li>내용5</li>
                             <li class="cur-pointer" @click="logout">{{ login.text }}</li>
                         </ul>
                     </div>

@@ -16,7 +16,7 @@
         </article>
         <article class="article">
             <div class="content">
-                <input type="checkbox" name="check" id="saveLogin" /><label class="cur-pointer" for="saveLogin"></label>
+                <input type="checkbox" name="check" id="saveLogin" v-model="isSaveLogin"/><label class="cur-pointer" for="saveLogin"></label>
                 <span class="checkbox-desc cur-pointer">로그인 상태 유지</span>
             </div>
         </article>
@@ -31,12 +31,20 @@
 </template>
 
 <script>
-import { jsonStringfy } from '@/assets/js/common.js'
+import { jsonStringfy, setLocalStorage } from '@/assets/js/common.js'
 
 export default {
+    beforeRouteEnter(to, from, next) {
+        next(vm => {
+            vm.prevRoute = from;
+        });
+    },
     computed: {
         actionGetError() {
             return (this.$store.state.errorData) ? jsonStringfy(this.$store.state.errorData) : ""; 
+        },
+        preveRoutePath() {
+            return this.prevRoute;
         }
     },
     data() {
@@ -45,6 +53,7 @@ export default {
                 email: "",
                 password: ""
             },
+            isSaveLogin: false,
             errorMsg: {
                 email: "",
                 password: ""
@@ -52,7 +61,10 @@ export default {
         }
     },
     created() {
-
+        
+    },
+    mounted() {
+        console.log(this.preveRoutePath);
     },
     methods: {
         /* ** 로그인 버튼 눌렀을 때 ** */
@@ -62,11 +74,19 @@ export default {
                 this.formData[i].val = "";
             }
 
+            setLocalStorage('isSaveLogin', this.isSaveLogin);
             await this.$store.dispatch('POST_LOGIN', jsonStringfy(this.formData));
             this.$showLoadingBar(false);
 
             const error = this.actionGetError;
-            if(Object.keys(error).length < 1) this.$router.go(-1); // 에러가 없으면 로그인 처리된 것
+            if(Object.keys(error).length < 1) {
+                console.log(this.preveRoutePath);
+                if(this.preveRoutePath) {
+                    this.$router.push(this.preveRoutePath.fullPath);
+                } else {
+                    if(Object.keys(error).length < 1) this.$router.go(-1); // 에러가 없으면 로그인 처리된 것
+                }
+            } 
                     
             if (error['email']) this.errorMsg.email = error.email[0];
             if (error['password']) this.errorMsg.password = error.password[0];
