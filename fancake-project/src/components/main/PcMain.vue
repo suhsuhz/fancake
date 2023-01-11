@@ -27,7 +27,9 @@
                     <div :class="[$style.img_section]">
                         <img :class="[$style.main_img]" :src="item.cover_image_link" alt="앨범이미지"/>
                         <a :href="item.product_link" target="_blank"><img :class="[$style.outlink_img]" src="@/assets/images/main/out_link.png" alt="링크"/></a>
-                        <img :class="[$style.profile_img]" :src="item.artist.profile_image_link" alt="프로필이미지"/>
+                        <span :class="[$style.profile_img]">
+                            <img :src="item.artist.profile_image_link" alt="프로필이미지"/>
+                        </span>
                     </div>
                     <div :class="[$style.info_section]">
                         <div :class="[$style.title]" class="break-wrap">{{ item.title }}</div>
@@ -56,7 +58,9 @@
                     <div :class="[$style.img_section]">
                         <img :class="[$style.main_img]" :src="item.cover_image_link" alt="앨범이미지"/>
                         <a :href="item.product_link" target="_blank"><img :class="[$style.outlink_img]" src="@/assets/images/main/out_link.png" alt="링크"/></a>
-                        <img :class="[$style.profile_img]" :src="item.artist.profile_image_link" alt="프로필이미지"/>
+                        <span :class="[$style.profile_img]">
+                            <img :src="item.artist.profile_image_link" alt="프로필이미지"/>
+                        </span>
                     </div>
                     <div :class="[$style.info_section]">
                         <div :class="[$style.title]" class="break-wrap">{{ item.title }}</div>
@@ -245,6 +249,11 @@ input[type="checkbox"] {
     transform: translate(-50%, 0);
     border-radius: 50%;
     border: 1px solid var(--background-grey-color);
+    overflow: hidden;
+}
+.profile_item .img_section .profile_img img {
+    width: 100%;
+    height: auto;
 }
 .profile_item .info_section {
     display: flex;

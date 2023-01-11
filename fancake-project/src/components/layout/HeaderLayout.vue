@@ -70,23 +70,46 @@
                         <img :class="[$style.list_logo]" src="@/assets/images/common/head_logo.png" alt="myfancake 로고" />
                         <img :class="[$style.close]" src="@/assets/images/common/ic_close.png" alt="닫기" @click="closeMobileMenu"/>
                     </article>
-                    <article :class="[$style.sub]">
-                        <span class="bt-white" :class="[$style.button]" @click="logout">{{ login.text }}</span>
-                        <span class="bt-white" :class="[$style.button]">마이메뉴</span>
+                    <article :class="[$style.email]">
+                        <img src="@/assets/images/common/mail.png" width="20px"/>{{ actionProfileForHeader.email }}
                     </article>
                     <article :class="[$style.content]">
-                        <div :class="[$style.depth1]">menu1</div>
+                        <div :class="[$style.depth1]">메뉴</div>
+                        <div
+                            :class="[$style.depth2]">
+                            <router-link to="/about" class="cur-pointer">About</router-link>
+                        </div>
+                        <div
+                            :class="[$style.depth2]">
+                            <router-link to="/intro" class="cur-pointer">For Artist</router-link>
+                        </div>
+                        <div
+                            :class="[$style.depth2]">
+                            <router-link to="/product" class="cur-pointer">Product</router-link>
+                        </div>
+                        <div :class="[$style.line]"></div>
+                        <div :class="[$style.depth1]">내 정보</div>
+                        <div
+                            :class="[$style.depth2]" 
+                            v-if="actionProfileForHeader.email">
+                            <router-link to="/profile/user">유저 정보</router-link>
+                        </div>
+                        <div 
+                            :class="[$style.depth2]" 
+                            v-if="actionProfileForHeader.artistRequested">
+                            <router-link to="/profile/artist">아티스트 정보</router-link>
+                        </div>
+                        <!-- <div :class="[$style.depth1]">menu1</div>
                         <div :class="[$style.depth2]">sub-menu1-1</div>
                         <div :class="[$style.depth2]">sub-menu1-2</div>
                         <div :class="[$style.line]"></div>
                         <div :class="[$style.depth1]">menu2</div>
                         <div :class="[$style.depth2]">sub-menu2-1</div>
                         <div :class="[$style.depth2]">sub-menu2-2</div>
-                        <div :class="[$style.depth2]">sub-menu3-2</div>
-                        <div :class="[$style.line]"></div>
-                        <div :class="[$style.depth1]">menu3</div>
-                        <div :class="[$style.line]"></div>
-                        <div :class="[$style.depth1]">menu4</div>
+                        <div :class="[$style.depth2]">sub-menu3-2</div> -->
+                        <div :class="[$style.sub]">
+                            <span class="bt-white cur-pointer" :class="[$style.button]" @click="logout">{{ login.text }}</span>
+                        </div>
                     </article>
                 </div>
             </section>
@@ -282,17 +305,26 @@ export default {
     width: 40px;
     padding: 5px;
 }
+.header_container_mobile .menu .list .email {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px 0;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+    color: #8b8b8b;
+}
 .header_container_mobile .menu .list .sub {
     display: flex;
     justify-content: center;
     margin: 30px 0;
 }
 .header_container_mobile .menu .list .button {
-    width: calc(50% - 15px); /* 50% - margin */
-    max-width: 250px;
-    margin-right: 15px;
+    /* width: calc(50% - 15px); 50% - margin
+    max-width: 250px;*/
+    width: 100%;
     padding: 15px 0;
-    text-align: center;
+    text-align: center; 
 }
 .header_container_mobile .menu .list .button:last-child {
     margin-right: 0;
@@ -302,12 +334,12 @@ export default {
     height: 100%;
 }
 .header_container_mobile .menu .list .content .depth1 {
-    font-size: 24px;
+    font-size: 21px;
     font-weight: bold;
     margin: 0 5px;
 }
 .header_container_mobile .menu .list .content .depth2 {
-    font-size: 20px;
+    font-size: 17px;
     margin: 20px 15px 0 15px;
 }
 .header_container_mobile .menu .list .content .line {

@@ -8,7 +8,7 @@
                     <h1>음악 생활을 할 수 있도록</h1>
                     <div :class="[$style.text_section]">나의 첫 NFT MyFANCAKE</div>
                     <div :class="[$style.button_section]">
-                        <span :class="[$style.button]">아티스트 등록하기</span>
+                        <span :class="[$style.button]" class="cur-pointer">아티스트 등록하기</span>
                     </div>
                 </div>
             </section>
@@ -41,7 +41,7 @@
                             “아티스트의 소중한 고객은 어떤 사용자일까요? MyFANCAKE가 주목한 것은 Fan(팬)이 될 수 있는 사용자입니다. 팬은 아티스트의 음악을 직접적으로 구매해주는 소중한 고객이며,  자신의 아티스트를 다른 사람들에게 추천해줄 수 있는 소중한 후견인입니다.”<br/> 팬들은 아티스트가 음악 생활을 지속하게 할 수 있는 원동력이자 팬과의 소통방법은 공연, 팬미팅, SNS 등 여러가지가 있겠지만, ‘MyFANCAKE’는 좀 더 편리한 소통방법을 위해 뉴스피드, 아티스트 정보 공유하기, 음악재생 등 의 기능을 기본 제공하며, 보다 합리적인 사용자 추천시스템을 제공합니다. <br/>‘MyFANCAKE’는 팬들이 자신이 좋아하는 아티스트의 음악상품을 보다 쉽게 구매할 수 있도록 웹 서비스 및 앱을 제공하고 보다 자유롭게 음악을 향유할 수 있도록 기능을 개발하였습니다.<br/> ‘MyFANCAKE’는 대부분의 음악 사이트에서 제공하는 랭킹정보를 제공하지 않습니다. 랭킹으로 인하여 아티스트가 소외되는 것을 최대한 차단하고자 합니다. 대신 사용자의 취향에 맞춘 신뢰도 있는 아티스트 추천시스템을 통하여 더 많은 팬이 아티스트를 Follow할 수 있기를 바랍니다.
                         </div>
                         <div :class="[$style.button_section]">
-                            <router-link to="/register"><span :class="[$style.button]">회원가입</span></router-link>
+                            <router-link to="/register"><span class="cur-pointer" :class="[$style.button]">회원가입</span></router-link>
                         </div>
                     </div>
                     <div :class="[$style.image]">
@@ -54,7 +54,7 @@
                         <div :class="[$style.sub_title]">나의 아티스트를 위한 다양한 활동을 시작할 수 있습니다</div>
                         <div :class="[$style.description]">한 명의 팬이 자신의 지인에게 아티스트를 추천하고,  추천 받은 음악이 다시 새로운 팬을 만들기를 바랍니다. 아티스트에게 팬은 큰 힘이됩니다. 아티스트 페이지를 Follow하고, 아티스트의 음악과 최신소식을 ‘MyFANCAKE’에서 만나요.<br/>아티스트와 팬이 지속적인 소통이 가능하도록 ‘MyFANCAKE’ 가 함께합니다. 충분한 마케팅 비용이 없어도 아티스트의 음악이 더 많이 알려질 수 있기를 바랍니다.  현실적인 한계만 탓하기엔 우리의 열정과 팬들의 기대가 너무나 큽니다. 우리는 팬들과 함께 아티스트의 잠재력을 끌어낼 수 있기를 바랍니다.</div>
                         <div :class="[$style.button_section]">
-                            <router-link to="/register"><span :class="[$style.button]">회원가입</span></router-link>
+                            <router-link to="/register"><span class="cur-pointer" :class="[$style.button]">회원가입</span></router-link>
                         </div>
                     </div>
                     <div :class="[$style.image]">
@@ -191,7 +191,6 @@ h2 {
     border: 1px solid var(--main-color);
     border-radius: 7px;
     color: var(--main-color);
-    cursor: pointer;
 }
 .content_section .content .button:hover {
     background: var(--main-color);
