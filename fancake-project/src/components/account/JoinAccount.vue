@@ -32,14 +32,14 @@
         <div class="content">
             <input type="checkbox" name="check" id="saveAgree" v-model="formData.termAgree"/><label class="cur-pointer" for="saveAgree"></label>
             <div class="checkbox-desc">
-                <router-link to="/Policy/Terms" target="_blank" :class="[$style.link]">이용약관</router-link>과 <router-link to="/Policy/Privacy" target="_blank" :class="[$style.link]">개인정보처리방침</router-link> 모두동의합니다.
+                <router-link to="/policy/terms" target="_blank" :class="[$style.link]">이용약관</router-link>과 <router-link to="/policy/privacy" target="_blank" :class="[$style.link]">개인정보처리방침</router-link> 모두동의합니다.
             </div>
         </div>
         <div class="error-msg">{{ errorMsg.termAgree }}</div>
     </article>
     <article class="article link">
         <div class="anchor-area">
-            <router-link to="/Login" class="anchor cur-pointer">이미 회원가입을 했습니까?</router-link>
+            <router-link to="/login" class="anchor cur-pointer">이미 회원가입을 했습니까?</router-link>
         </div>
         <span class="button bt-main cur-pointer" @click="goJoin">회원등록</span>
     </article>
@@ -47,7 +47,8 @@
 </template>
 
 <script>
-import { jsonStringfy } from '@/assets/js/common.js'
+import { jsonStringfy } from '@/assets/js/common.js';
+import { isLogin } from '@/assets/js/common.js';
 
 export default {
     computed: {
@@ -89,7 +90,7 @@ export default {
             await this.$store.dispatch('POST_JOIN', this.renameKey(this.formData));
 
             const error = this.actionGetError;
-            if(Object.keys(error).length < 1) this.$router.replace('/Login'); // 에러가 없으면 종료
+            if(Object.keys(error).length < 1) this.$router.replace('/login'); // 에러가 없으면 종료
 
             if(error['name']) this.errorMsg.name = error['name'][0];
             if(error['email']) this.errorMsg.email = error['email'][0];
@@ -109,9 +110,10 @@ export default {
         }
     },
     created() {
-        // 이미 로그인된 상태면 메인 페이지로 보내주기
+        if (isLogin()) {
+            this.$router.replace('/main');
+        }// 이미 로그인된 상태면 메인 페이지로 보내주기
     }
-    
 }
 </script>
 

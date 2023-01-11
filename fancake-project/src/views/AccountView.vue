@@ -7,16 +7,10 @@
 <script>
 // components
 import CommonAccount from '../components/account/CommonAccount.vue';
-import { isLogin } from '@/assets/js/common.js'
 
 export default {
   components: {
     CommonAccount
-  },
-  created() {
-    if(isLogin()) {
-      this.$router.replace('/Main');
-    }
   }
 }
 </script>

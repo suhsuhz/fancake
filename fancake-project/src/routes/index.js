@@ -8,6 +8,8 @@ import PolicyView from '../views/PolicyView.vue';
 import ProfileView from '../views/ProfileView.vue';
 import MainView from '../views/MainView.vue';
 import ProductView from '../views/ProductView.vue';
+import AboutView from '../views/AboutView.vue';
+import IntroView from '../views/IntroView.vue'
 
 /* ** components ** */
 // Account
@@ -39,7 +41,7 @@ export const router = new VueRouter({
 
         },
         // main
-        {   path: '/Main', 
+        {   path: '/main', 
             component: MainView,
             children: [
                 { path: '/', component: MainView }, // 기본
@@ -50,33 +52,43 @@ export const router = new VueRouter({
             component: AccountView,
             children: [
                 { path: '/', component: MainView }, // 기본
-                { path: 'Login', component: Login }, // 로그인
-                { path: 'Register', component: Join }, // 회원가입
-                { path: 'Reset', component: Reset }, // 비밀번호 변경
+                { path: 'login', component: Login }, // 로그인
+                { path: 'register', component: Join }, // 회원가입
+                { path: 'reset', component: Reset }, // 비밀번호 변경
             ]
         },
         // 약관
-        {   path: '/Policy', 
+        {   path: '/policy', 
             component: PolicyView,
             children: [
                 { path: '/', component: Terms },
-                { path: 'Terms', component: Terms }, // 약관
-                { path: 'Privacy', component: Privacy } // 개인정보 처리방침
+                { path: 'terms', component: Terms }, // 약관
+                { path: 'privacy', component: Privacy } // 개인정보 처리방침
             ]
         },
         // 마이페이지
         {
-            path: '/Profile',
+            path: '/profile',
             component: ProfileView,
             children: [
-                { path: 'User', component: User },
-                { path: 'Artist', component: Artist }
+                { path: 'user', component: User },
+                { path: 'artist', component: Artist }
             ]
         },
         // 프로덕트 페이지
         {
-            path: '/Product',
+            path: '/product',
             component: ProductView,
-        }
+        },
+        // about 페이지
+        {
+            path: '/about',
+            component: AboutView,
+        },
+        // for artist 페이지
+        {
+            path: '/intro',
+            component: IntroView,
+        },
     ]
 });

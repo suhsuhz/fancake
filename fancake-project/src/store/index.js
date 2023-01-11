@@ -41,10 +41,17 @@ const store = new vuex.Store({
                 bannerImageLink: ""
             }
         },
+        headerProfile: {
+            email: "",
+            artistRequested: ""
+        },
         artistList: {
 
         },
         productList: {
+            
+        },
+        hotProductList: {
             
         }
     },

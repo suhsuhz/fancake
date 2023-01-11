@@ -52,6 +52,10 @@ export default {
         state.profile.requesterPhoneNumber = profileData.requester_phone_number;
         state.profile.requester = profileData.requester;
     },
+    FETCH_PROFILE_FOR_HEADER(state, profileData) { // 헤더 메뉴를 위해 프로필 정보 중 이메일, 아티스트 여부만 가져옴
+        state.headerProfile.email = profileData.email;
+        state.headerProfile.artistRequested = profileData.artist_requested;
+    },
     SET_TEAM_INFO(state, data) {
         if(data.profile_image_link) state.team.info.profileImageLink = setPathUrl(data.profile_image_link);
         state.team.info.description = data.description;
@@ -62,6 +66,7 @@ export default {
         state.team.info.teamName = data.team_name;
 
         if(data.banner_image_link) state.team.banner.bannerImageLink = setPathUrl(data.banner_image_link);
+        console.log(state.team);
     },
     SET_ARTIST_IMAGE(state, image) {
         console.log(image);
@@ -71,6 +76,13 @@ export default {
         state.team.banner.bannerImageLink = setPathUrl(image);
     },
     SET_PRODUCT_LIST(state, data) {
-        state.productList = data;
+        switch(data.sort) {
+            case 'hot' : 
+                state.hotProductList = data;
+            break;
+            default : 
+                state.productList = data;
+            break;
+        }
     }
 }

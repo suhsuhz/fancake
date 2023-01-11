@@ -19,13 +19,12 @@ export default {
   created() {
     if(!isLogin()) {
       alert("로그인 후 이용해주세요");
-      this.$router.replace('/Login');
+      this.$router.replace('/login');
     }
 
     this.$autoLogout();
   },
   updated() {
-    alert("update");
     this.$loginTimeUpdate();
   }
 }

@@ -4,6 +4,12 @@
             <div :class="[$style.footer_content]">
                 <section>
                     <img :class="[$style.logo]" src="@/assets/images/common/head_logo.png" alt="myfancake 로고"/>
+                    <div :class="[$style.text]">
+                        주식회사 마이팬케이크<br />
+                        대표자 | 고민규 사업자번호 | 343-88-02242<br />
+                        주소 | 인천광역시 부평구 부평대로 283, A동 B115-17호<br />
+                        이메일 | contact@myfancake.com<br />
+                    </div>
                 </section>
             </div>
         </article>
@@ -17,10 +23,10 @@
 </script>
 <style module>
 .footer_section {
-    margin-top: 120px;
     padding: 75px 0 85px 0;
     background-color: #363636;
     color: #fff;
+    font-weight: 200;
 }
 .footer_section .info {
     display: flex;
@@ -40,9 +46,16 @@
     margin: 0 auto;
 }
 .footer_section .info .footer_content section{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;   
+    /* display: grid;
+    grid-template-columns: 1fr 1fr 1fr; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+.footer_section .info .footer_content section .text {
+    line-height: 22px;
+}
+
 .footer_section .info .logo {
     width: 300px;
 }

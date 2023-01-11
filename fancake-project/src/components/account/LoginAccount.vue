@@ -22,8 +22,8 @@
         </article>
         <article class="article link">
             <div class="anchor-area">
-                <router-link to="/Register" class="anchor cur-pointer">회원등록</router-link>
-                <router-link to="/Reset" class="anchor cur-pointer">비밀번호를 잊었습니까?</router-link>
+                <router-link to="/register" class="anchor cur-pointer">회원등록</router-link>
+                <router-link to="/reset" class="anchor cur-pointer">비밀번호를 잊었습니까?</router-link>
             </div>
             <span class="button bt-main cur-pointer" @click="goLogin">로그인</span>
         </article>
@@ -31,7 +31,8 @@
 </template>
 
 <script>
-import { jsonStringfy, setLocalStorage } from '@/assets/js/common.js'
+import { jsonStringfy, setLocalStorage } from '@/assets/js/common.js';
+import { isLogin } from '@/assets/js/common.js';
 
 export default {
     beforeRouteEnter(to, from, next) {
@@ -61,10 +62,11 @@ export default {
         }
     },
     created() {
-        
+        if (isLogin()) {
+            this.$router.replace('/main');
+        }
     },
     mounted() {
-        console.log(this.preveRoutePath);
     },
     methods: {
         /* ** 로그인 버튼 눌렀을 때 ** */
@@ -79,12 +81,11 @@ export default {
             this.$showLoadingBar(false);
 
             const error = this.actionGetError;
-            if(Object.keys(error).length < 1) {
-                console.log(this.preveRoutePath);
+            if(Object.keys(error).length < 1) { // 에러가 없으면 로그인 처리된 것
                 if(this.preveRoutePath) {
                     this.$router.push(this.preveRoutePath.fullPath);
                 } else {
-                    if(Object.keys(error).length < 1) this.$router.go(-1); // 에러가 없으면 로그인 처리된 것
+                    if(Object.keys(error).length < 1) this.$router.go(-1);
                 }
             } 
                     

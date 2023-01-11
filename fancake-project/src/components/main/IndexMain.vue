@@ -29,13 +29,19 @@ export default {
     },
     async created() {
         await this.$store.dispatch('FETCH_PRODUCT_LIST',this.productPageInfo);
+        await this.$store.dispatch('FETCH_PRODUCT_LIST',this.hotProductPageInfo);
     },
     data() {
         return {
             productPageInfo: {
                 sort: 'new',
                 offset: 0,
-                limit: 20,
+                limit: 8,
+            },
+            hotProductPageInfo: {
+                sort: 'hot',
+                offset: 0,
+                limit: 8,
             }
         }
     },

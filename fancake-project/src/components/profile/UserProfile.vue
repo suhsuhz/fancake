@@ -168,14 +168,11 @@
 </template>
 
 <script>
-import { mapGetters  } from 'vuex';
+//import { mapGetters  } from 'vuex';
 import { getFileWidthHeight, jsonStringfy } from "@/assets/js/common.js";
 
 export default {
     computed: {
-        ...mapGetters([
-            'FETCH_PROFILE_USER'
-        ]),
         actionGetError() {
             return (this.$store.state.errorData) ? jsonStringfy(this.$store.state.errorData) : ""; 
         },
@@ -190,6 +187,7 @@ export default {
         this.$showLoadingBar(true);
         await this.$store.dispatch('FETCH_PROFILE_USER');
         this.$showLoadingBar(false);
+        
         this.profile.name = this.actionUserProfile.name;
         this.profile.email = this.actionUserProfile.email;
         this.nick = this.actionUserProfile.nick;

@@ -13,7 +13,6 @@ export default {
             commit('SET_ERROR', error);
         })
     },
-
     /* * LOGIN * */
     POST_LOGIN({ commit }, data) {
         return login(data)
@@ -52,6 +51,16 @@ export default {
         })
         .catch(error => {
             commit('SET_ERROR', error);
+        })
+    },
+    FETCH_PROFILE_FOR_HEADER({ commit }) {
+        return axiosGet(process.env.VUE_APP_URL_GET_USER_PROFILE)
+        .then(res => {
+            if(res.data) {
+                const profileData = res.data;
+                // 계정정보
+                commit('FETCH_PROFILE_FOR_HEADER', profileData);
+            }
         })
     },
     POST_PROFILE_IMAGE({ commit }, formData) {
@@ -182,6 +191,7 @@ export default {
         .then(res => {
             if(res.data) {
                 const data = res.data.data;
+                data.sort = info.sort;
                 // 계정정보
                 commit('SET_PRODUCT_LIST', data);
             }

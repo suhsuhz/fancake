@@ -3,18 +3,18 @@
         <!-- pc -->
         <div :class="[$style.header_container_pc]">
             <article :class="[$style.logo]">
-                <router-link to="/Main"><img src="@/assets/images/common/head_logo.png" alt="myfancake 로고" /></router-link>
+                <router-link to="/main"><img src="@/assets/images/common/head_logo.png" alt="myfancake 로고" /></router-link>
             </article>
             <article :class="$style['menu']">
                 <ul :class="$style['list']">
                     <li>
-                        <router-link to="/Main" class="cur-pointer">Home</router-link>
+                        <router-link to="/about" class="cur-pointer">About</router-link>
                     </li>
                     <li>
-                        <router-link to="/Main" class="cur-pointer">About</router-link>
+                        <router-link to="/intro" class="cur-pointer">For Artist</router-link>
                     </li>
                     <li>
-                        <router-link to="/Product" class="cur-pointer">Product</router-link>
+                        <router-link to="/product" class="cur-pointer">Product</router-link>
                     </li>
                 </ul>
                 <div :class="[$style.menu_list]">
@@ -28,9 +28,24 @@
                     <div id="pcMenu" class="cur-pointer" :class="[$style.my]" @mouseover="openPcMenu" @mouseleave="closePcMenu">
                         <span>계정</span><img src="@/assets/images/common/ic_arrow_down.png" alt="구분선" />
                         <ul class="pc_menu" :class="[$style.my_list, pcMenuCss]">
-                            <li><router-link to="/Profile/User">유저</router-link></li>
-                            <li><router-link to="/Profile/Artist">아티스트</router-link></li>
-                            <li :class="[$style.border]"></li>
+                            <li 
+                            :class="[$style.email]" 
+                            v-if="actionProfileForHeader.email">
+                                <img src="@/assets/images/common/mail.png" width="20px"/>
+                                {{ actionProfileForHeader.email }}
+                            </li>
+                            <li 
+                                v-if="actionProfileForHeader.email">
+                                <router-link to="/profile/user">유저 정보</router-link>
+                            </li>
+                            <li 
+                                v-if="actionProfileForHeader.artistRequested">
+                                <router-link to="/profile/artist">아티스트 정보</router-link>
+                            </li>
+                            <li 
+                                v-if="actionProfileForHeader.email"
+                                :class="[$style.border]">
+                            </li>
                             <li class="cur-pointer" @click="logout">{{ login.text }}</li>
                         </ul>
                     </div>
@@ -86,6 +101,9 @@ export default {
     computed: {
         actionGetError() {
             return (this.$store.state.errorData) ? jsonStringfy(this.$store.state.errorData) : "";
+        },
+        actionProfileForHeader() {
+            return this.$store.state.headerProfile;
         }
     },
     data() {
@@ -97,7 +115,7 @@ export default {
             login: {
                 isLogin: isLogin(),
                 text: (isLogin()) ? "로그아웃" : "로그인",
-            } 
+            }
         }
     },
     methods: {
@@ -123,6 +141,9 @@ export default {
             if(!confirm('로그아웃 하시겠습니까?')) return;
             this.$logout();
         }
+    },
+    created() {
+        this.$store.dispatch('FETCH_PROFILE_FOR_HEADER');
     }
 }
 </script>
@@ -359,7 +380,8 @@ export default {
 .header_container_pc .menu .menu_list .my .my_list {
     display: block;
     position: absolute;
-    width: 100px;
+    width: fit-content;
+    max-width: 230px;
     top: 25px;
     padding: 20px 8px;
     background: #fff;
@@ -372,6 +394,16 @@ export default {
     border-bottom: 1px solid var(--background-grey-color);
 }
 .header_container_pc .menu .menu_list .my .my_list li {
+    padding: 1px 0;
+}
+.header_container_pc .menu .menu_list .my .my_list li:not(:last-child) {
     margin-bottom: 10px;
+}
+.header_container_pc .menu .menu_list .my .my_list li.email {
+    display: flex;
+    overflow: hidden;
+    font-size: 15px;
+    font-weight: bold;
+    color: #797979;
 }
 </style>
