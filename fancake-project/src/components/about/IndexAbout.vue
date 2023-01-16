@@ -3,9 +3,9 @@
         <div class="content-area">
             <section :class="[$style.main_section]">
                 <div :class="[$style.intro, $style.width_90per]">
-                    <h1>모든 아티스트가</h1>
-                    <h1>행복한.</h1>
-                    <h1>음악 생활을 할 수 있도록</h1>
+                    <h1 :class="[$style.h1]">모든 아티스트가</h1>
+                    <h1 :class="[$style.h1]">행복한.</h1>
+                    <h1 :class="[$style.h1]">음악 생활을 할 수 있도록</h1>
                     <div :class="[$style.text_section]">나의 첫 NFT MyFANCAKE</div>
                     <div :class="[$style.button_section]">
                         <span :class="[$style.button]" class="cur-pointer">아티스트 등록하기</span>
@@ -13,7 +13,7 @@
                 </div>
             </section>
             <section :class="[$style.content_section, $style.width_90per]">
-                <h2 :class="[$style.subject]">
+                <h2 :class="[$style.subject, $style.h2]">
                     <span :class="[$style.color_main]">'MyFANCAKE'</span>에서 팬들과 소통하고<br/> 
                     내 음악을 손쉽게 NFT로 판매해 보세요
                 </h2>
@@ -92,7 +92,7 @@ export default {
     margin: 0 auto;
     max-width: 1280px;
 }
-h1 {
+.h1 {
     margin-top: 20px;
     margin-bottom: 10px;
     font-size: 48px;
@@ -100,7 +100,7 @@ h1 {
     line-height: 1.2;
     font-style: normal;
 }
-h2 {
+.h2 {
     font-size: 36px;
     line-height: 1.5;
 }
