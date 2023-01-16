@@ -421,6 +421,11 @@ export default {
     border-radius: 5px;
     font-size: 15px;
 }
+@media screen and (max-width:1560px) {
+    .header_container_pc .menu .menu_list .my .my_list {
+        right: 0;
+    }
+}
 .header_container_pc .menu .menu_list .my .my_list .border {
     width: 100%;
     border-bottom: 1px solid var(--background-grey-color);
