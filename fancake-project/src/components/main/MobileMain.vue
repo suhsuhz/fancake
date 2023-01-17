@@ -168,8 +168,10 @@ input[type="checkbox"] {
     font-size: 20px;
 }
 .profile_container_mobile {
-    width: 106%;
-    margin-left: -3%;
+    /*width: 106%;
+    width: 580px;
+    margin-left: -3%; */
+    width: 100%;
     margin-bottom: 50px;
     padding: 0 6%;
 }
