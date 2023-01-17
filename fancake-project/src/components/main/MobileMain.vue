@@ -52,6 +52,44 @@
                 </div>
             </div>
         </article>
+        <article :class="[$style.product_section]">
+            <div :class="[$style.title]">
+                <div :class="[$style.h3]">Hot NFT Music</div>
+                <div :class="[$style.h2]">가장 핫한 NFT 음악</div>
+            </div>
+            <div :class="[$style.profile_container_mobile]">
+                <div :class="[$style.no_profile_content]" v-if="(actionHotProductList.total == 0)">
+                    등록된 콘텐츠가 없습니다.
+                </div>
+                <div :class="[$style.profile_container_mobile]" v-if="(actionHotProductList.total > 0)">
+                <swiper class="swiper" :option="swiperOption">
+                    <swiper-slide v-for="(item, index) in actionHotProductList.list" :key="index">
+                            <div :class="[$style.profile_item]" >
+                                <div :class="[$style.img_section]">
+                                    <img :class="[$style.main_img]" :src="item.cover_image_link" alt="앨범이미지"/>
+                                    <a :href="item.product_link" target="_blank"><img :class="[$style.outlink_img]" src="@/assets/images/main/out_link.png" alt="링크"/></a>
+                                    <span :class="[$style.profile_img]">
+                                        <img :src="item.artist.profile_image_link" alt="프로필이미지"/>
+                                    </span>
+                                </div>
+                                <div :class="[$style.info_section]">
+                                    <div :class="[$style.title]" class="break-wrap">{{ item.title }}</div>
+                                    <div :class="[$style.name]">by <div class="font-color-main overflow-text-ellipsis">{{ item.artist.team_name }}</div></div>
+                                </div>
+                                <div :class="[$style.bottom_section]">
+                                    <div :class="[$style.like]">
+                                        <input :class="[$style.like]" name="like" :id="index" type="checkbox"/><label :for="index"></label>
+                                        <span>{{ item.wanted }}</span>
+                                    </div>
+                                    <div :class="[$style.price]"><span :class="[$style.currency]">{{ item.currency }}</span>{{ item.price }}</div>
+                                </div>
+                            </div>
+                    </swiper-slide>
+                    <!-- <div class="swiper-pagination" slot="pagination"></div> -->
+                </swiper>
+                </div>
+            </div>
+        </article>
     </div>
 </template>
 <script>
@@ -64,6 +102,9 @@ export default {
     computed: {
         actionProductList() {
             return this.$store.state.productList;
+        },
+        actionHotProductList() {
+            return this.$store.state.hotProductList;
         }
     },
     data() {
@@ -189,7 +230,8 @@ input[type="checkbox"] {
 }
 .profile_item .img_section {
     position: relative;
-    height: 80vw;
+    /*height: 80vw;*/
+    aspect-ratio: 2.9 / 3; /* 16:9 비율 지정 */
 }
 .profile_item .img_section .outlink_img {
     position: absolute;
@@ -231,14 +273,14 @@ input[type="checkbox"] {
 }
 .profile_item .info_section .title {
     margin-bottom: 5px;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 500;
     text-align: center;
 }
 .profile_item .info_section .name {
     display: flex;
     justify-content: center;
-    font-size: 18px;
+    font-size: 15px;
     color: #898989;
     font-weight: 300;
 }
