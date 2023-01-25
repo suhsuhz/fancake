@@ -9,7 +9,8 @@ import ProfileView from '../views/ProfileView.vue';
 import MainView from '../views/MainView.vue';
 import ProductView from '../views/ProductView.vue';
 import AboutView from '../views/AboutView.vue';
-import IntroView from '../views/IntroView.vue'
+import IntroView from '../views/IntroView.vue';
+import ArtistView from '../views/ArtistView.vue';
 
 /* ** components ** */
 // Account
@@ -22,6 +23,8 @@ import Privacy from '@/components/policy/PrivacyPolicy.vue';
 // Profile
 import User from '@/components/profile/UserProfile.vue';
 import Artist from '@/components/profile/ArtistProfile.vue';
+// artist
+import Musics from '@/components/artist/MusicsArtist.vue';
 // product 
 
 Vue.use(VueRouter);
@@ -89,6 +92,14 @@ export const router = new VueRouter({
         {
             path: '/intro',
             component: IntroView,
+        },
+        // artist product 페이지
+        {
+            path: '/artist',
+            component: ArtistView,
+            children: [
+                { path: 'musics', component:  Musics } // 아티스트 제품 목록
+            ]
         },
     ]
 });
