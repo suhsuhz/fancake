@@ -208,6 +208,11 @@ input[type="checkbox"] {
     margin-bottom: 54px;
     text-align: center;
 }
+.product_section .title:hover {
+    cursor: pointer;
+    text-decoration: underline;
+
+}
 .product_section .h3 {
     margin-bottom: 12px;
     color: var(--main-color);

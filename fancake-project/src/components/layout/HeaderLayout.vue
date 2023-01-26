@@ -8,13 +8,13 @@
             <article :class="$style['menu']">
                 <ul :class="$style['list']">
                     <li>
-                        <router-link to="/about" class="cur-pointer">About</router-link>
+                        <router-link to="/about" class="cur-pointer header-menu-list">About</router-link>
                     </li>
                     <li>
-                        <router-link to="/intro" class="cur-pointer">For Artist</router-link>
+                        <router-link to="/intro" class="cur-pointer header-menu-list">For Artist</router-link>
                     </li>
                     <li>
-                        <router-link to="/product" class="cur-pointer">Product</router-link>
+                        <router-link to="/product" class="cur-pointer header-menu-list">Product</router-link>
                     </li>
                 </ul>
                 <div :class="[$style.menu_list]">
@@ -35,10 +35,12 @@
                                 {{ actionProfileForHeader.email }}
                             </li>
                             <li 
+                                class="header-menu-list"
                                 v-if="actionProfileForHeader.email">
                                 <router-link to="/profile/user">유저 정보</router-link>
                             </li>
                             <li 
+                                class="header-menu-list"
                                 v-if="actionProfileForHeader.artistRequested">
                                 <router-link to="/profile/artist">아티스트 정보</router-link>
                             </li>
@@ -46,7 +48,7 @@
                                 v-if="actionProfileForHeader.email"
                                 :class="[$style.border]">
                             </li>
-                            <li class="cur-pointer" @click="logout">{{ login.text }}</li>
+                            <li class="cur-pointer header-menu-list" @click="logout">{{ login.text }}</li>
                         </ul>
                     </div>
                 </div>
@@ -171,6 +173,9 @@ export default {
 }
 </script>
 <style scoped>
+.header-menu-list:hover, .header-menu-list.on {
+    color: var(--main-color);
+}
 .main_header {
     width: 90%;
     max-width: 1280px;

@@ -11,6 +11,10 @@
     --background-grey-color: #EBECF0;
     --border-grey-color: #EBECF0;
 }
+/* router link */
+.router-link-exact-active {
+    color: var(--main-color);
+}
 /* ** [공용] ** */
 .fit-content {
     width: fit-content;

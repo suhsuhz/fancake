@@ -8,7 +8,9 @@
                     <h1 :class="[$style.h1]">음악 생활을 할 수 있도록</h1>
                     <div :class="[$style.text_section]">나의 첫 NFT MyFANCAKE</div>
                     <div :class="[$style.button_section]">
-                        <span :class="[$style.button]" class="cur-pointer">아티스트 등록하기</span>
+                        <span :class="[$style.button]" class="cur-pointer">
+                            <router-link to="/profile/user">아티스트 등록하기</router-link>
+                        </span>
                     </div>
                 </div>
             </section>

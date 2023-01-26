@@ -1,124 +1,79 @@
 <template>
-    <div class="artist_content">
-        <section class="artist_banner_section">
-            <img src="" alt="배너이미지"/>
-        </section>
-        <section class="artist_tap_section">
-            <span class="tap_button">아트</span>
-            <span class="tap_button">Social</span>
-        </section>
-        <section class="artist_content_section">
-            <!-- <div>아직 올린 콘텐츠가 없습니다.</div> 콘텐츠가 없을때 넣어줘야 함 -->
-            <article :class="[$style.musics]">
-                <div :class="[$style.item]">
-                    <img src=""/>
-                    <div :class="[$style.title]">
-                        <div :class="[$style.title_text]">
-                            제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3
-                        </div>
+    <section class="artist_content_section">
+        <!-- <div>아직 올린 콘텐츠가 없습니다.</div> 콘텐츠가 없을때 넣어줘야 함 -->
+        <article :class="[$style.musics]">
+            <div :class="[$style.item]">
+                <img src=""/>
+                <div :class="[$style.title]">
+                    <div :class="[$style.title_text]">
+                        제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3
                     </div>
                 </div>
-                <div :class="[$style.item]">
-                    <img src=""/>
-                    <div :class="[$style.title]">
-                        <div :class="[$style.title_text]">
-                            제품 타이틀3제품
-                        </div>
+            </div>
+            <div :class="[$style.item]">
+                <img src=""/>
+                <div :class="[$style.title]">
+                    <div :class="[$style.title_text]">
+                        제품 타이틀3제품
                     </div>
                 </div>
-                <div :class="[$style.item]">
-                    <img src=""/>
-                    <div :class="[$style.title]">
-                        <div :class="[$style.title_text]">
-                            제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3
-                        </div>
+            </div>
+            <div :class="[$style.item]">
+                <img src=""/>
+                <div :class="[$style.title]">
+                    <div :class="[$style.title_text]">
+                        제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3
                     </div>
                 </div>
-                <div :class="[$style.item]">
-                    <img src=""/>
-                    <div :class="[$style.title]">
-                        <div :class="[$style.title_text]">
-                            제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3
-                        </div>
+            </div>
+            <div :class="[$style.item]">
+                <img src=""/>
+                <div :class="[$style.title]">
+                    <div :class="[$style.title_text]">
+                        제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3
                     </div>
                 </div>
-                <div :class="[$style.item]">
-                    <img src=""/>
-                    <div :class="[$style.title]">
-                        <div :class="[$style.title_text]">
-                            제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3
-                        </div>
+            </div>
+            <div :class="[$style.item]">
+                <img src=""/>
+                <div :class="[$style.title]">
+                    <div :class="[$style.title_text]">
+                        제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3제품 타이틀3
                     </div>
                 </div>
-                <div :class="[$style.item]">
-                    <img src=""/>
-                    <div :class="[$style.title]">
-                        <div :class="[$style.title_text]">
-                            제품 타이틀3제품
-                        </div>
+            </div>
+            <div :class="[$style.item]">
+                <img src=""/>
+                <div :class="[$style.title]">
+                    <div :class="[$style.title_text]">
+                        제품 타이틀3제품
                     </div>
                 </div>
-                <div :class="[$style.item]">
-                    <img src=""/>
-                    <div :class="[$style.title]">
-                        <div :class="[$style.title_text]">
-                            제품 타이틀3제품
-                        </div>
+            </div>
+            <div :class="[$style.item]">
+                <img src=""/>
+                <div :class="[$style.title]">
+                    <div :class="[$style.title_text]">
+                        제품 타이틀3제품
                     </div>
                 </div>
-            </article>
-            <article :class="[$style.follow]">
-                <div :class="[$style.title]">아티스트 명</div>
-                <div :class="[$style.button]">Follow</div>
-                <ul :class="[$style.follow_list]">
-                    <!-- 추후 정리해서 주실 예정. 아마도 프로필 이미지 + 닉네임 -->
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
-                </ul>
-            </article>
-        </section>
-    </div>
+            </div>
+        </article>
+        <article :class="[$style.follow]">
+            <div :class="[$style.title]">아티스트 명</div>
+            <div :class="[$style.button]">Follow</div>
+            <ul :class="[$style.follow_list]">
+                <!-- 추후 정리해서 주실 예정. 아마도 프로필 이미지 + 닉네임 -->
+                <li>test</li>
+                <li>test</li>
+                <li>test</li>
+                <li>test</li>
+            </ul>
+        </article>
+    </section>
 </template>
 
 <style scoped>
-.artist_content {
-    margin: 0 auto;
-    padding-bottom: 45px;
-    font-size: 14px;
-}
-.artist_banner_section {
-    position: relative;
-    max-width: 975px;
-    height: 180px;
-    text-align: center;
-    overflow-x: hidden;
-}
-.artist_banner_section img {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%);
-    width: 975px;
-    height: 180px;
-}
-.artist_tap_section {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    height: 42px;
-    background: var(--background-grey-color);
-}
-.artist_tap_section .tap_button {
-    width: 100px;
-    text-align: center;
-    font-weight: bold;
-}
-.artist_tap_section .tap_button.on, .artist_tap_section .tap_button:hover {
-    color: var(--main-color);
-    cursor: pointer;
-}
 .artist_content_section {
     display: flex;
     justify-content: space-between;
