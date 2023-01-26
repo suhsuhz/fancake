@@ -20,19 +20,19 @@
                 <div :class="[$style.title]">당신의 모든 것을 NFT로 판매하세요</div>
                 <div :class="[$style.image_section]">
                     <div :class="[$style.icon]">
-                        <img :class="[$style.icon]" src="@/assets/images/intro/ic_music_off.png" alt="음원"/>
+                        <img :class="[$style.icon]" :src="iconImage.music" alt="음원" @mouseover="changeIcon('music', false)" @mouseleave="changeIcon('music', true)"/>
                         <span>음원</span>
                     </div>
                     <div :class="[$style.icon]">
-                        <img :class="[$style.icon]" src="@/assets/images/intro/ic_ticket_off.png" alt="티켓"/>
+                        <img :class="[$style.icon]" :src="iconImage.ticket" alt="티켓" @mouseover="changeIcon('ticket', false)" @mouseleave="changeIcon('ticket', true)"/>
                         <span>콘서트 티켓</span>
                     </div>
                     <div :class="[$style.icon]">
-                        <img :class="[$style.icon]" src="@/assets/images/intro/ic_image_off.png" alt="이미지"/>
+                        <img :class="[$style.icon]" :src="iconImage.image" alt="이미지" @mouseover="changeIcon('image', false)" @mouseleave="changeIcon('image', true)"/>
                         <span>이미지</span>
                     </div>
                     <div :class="[$style.icon]">
-                        <img :class="[$style.icon]" src="@/assets/images/intro/ic_video_off.png" alt="영상"/>
+                        <img :class="[$style.icon]" :src="iconImage.video" alt="영상" @mouseover="changeIcon('video', false)" @mouseleave="changeIcon('video', true)"/>
                         <span>영상</span>
                     </div>
                 </div>
@@ -100,7 +100,7 @@
                         </div>
                     </article>
                     <article>
-                        <div :class="[$style.desc_icon]"><img src="@/assets/images/intro/ic_arrow.png" alt="NFT" /></div>
+                        <div :class="[$style.desc_icon]"><img src="@/assets/images/intro/ic_arrow.svg" alt="NFT" /></div>
                     </article>
                     <article>
                         <div :class="[$style.desc_title]">NFT 마켓</div>
@@ -195,13 +195,38 @@ export default {
     created() {
     },
     data() {
-       return {
-
-       }
+        return {
+            iconImage: {
+                music: require("../../assets/images/intro/ic_music_on.svg"),
+                ticket: require("../../assets/images/intro/ic_ticket_on.svg"),
+                image: require("../../assets/images/intro/ic_image_on.svg"),
+                video: require("../../assets/images/intro/ic_video_on.svg")
+            }
+        }
     },
-    
     methods: {
-
+        changeIcon(type, status) {
+            switch(type) {
+                case 'music':
+                    if (status) this.iconImage.music = require("../../assets/images/intro/ic_music_on.svg");
+                    else this.iconImage.music = require("../../assets/images/intro/ic_music_off.svg");
+                    break;
+                case 'ticket':
+                    if (status) this.iconImage.ticket = require("../../assets/images/intro/ic_ticket_on.svg");
+                    else this.iconImage.ticket = require("../../assets/images/intro/ic_ticket_off.svg");
+                    break;
+                case 'image':
+                    if (status) this.iconImage.image = require("../../assets/images/intro/ic_image_on.svg");
+                    else this.iconImage.image = require("../../assets/images/intro/ic_image_off.svg");
+                    break;
+                case 'video':
+                    if (status) this.iconImage.video = require("../../assets/images/intro/ic_video_on.svg");
+                    else this.iconImage.video = require("../../assets/images/intro/ic_video_off.svg");
+                    break;
+                default:
+                    break;
+            }
+        }
     },
 }
 </script>
@@ -331,6 +356,9 @@ hr {
 }
 .sub3 .desc .desc_icon {
     margin: 0 50px;
+}
+.sub3 .desc .desc_icon img {
+    width: 80px;
 }
 .sub3 .desc .desc_text {
     margin-top: 30px;

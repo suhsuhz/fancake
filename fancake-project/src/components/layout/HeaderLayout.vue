@@ -31,7 +31,7 @@
                             <li 
                             :class="[$style.email]" 
                             v-if="actionProfileForHeader.email">
-                                <img src="@/assets/images/common/mail.png" width="20px"/>
+                                <img src="@/assets/images/common/ic_mail.svg"/>
                                 {{ actionProfileForHeader.email }}
                             </li>
                             <li 
@@ -73,7 +73,7 @@
                         <img :class="[$style.close]" src="@/assets/images/common/ic_close.png" alt="닫기" @click="closeMobileMenu"/>
                     </article>
                     <article :class="[$style.email]">
-                        <img src="@/assets/images/common/mail.png" width="20px"/>{{ actionProfileForHeader.email }}
+                        <img src="@/assets/images/common/ic_mail.svg"/>{{ actionProfileForHeader.email }}
                     </article>
                     <article :class="[$style.content]">
                         <div :class="[$style.depth1]">메뉴</div>
@@ -313,11 +313,16 @@ export default {
 .header_container_mobile .menu .list .email {
     display: flex;
     justify-content: flex-end;
+    align-items: flex-end;
     margin: 20px 0;
     font-size: 18px;
     font-weight: bold;
     padding: 10px;
     color: #8b8b8b;
+}
+.header_container_mobile .menu .list .email img {
+    margin-right: 5px;
+    width: 17px;
 }
 .header_container_mobile .menu .list .sub {
     display: flex;
@@ -443,9 +448,14 @@ export default {
 }
 .header_container_pc .menu .menu_list .my .my_list li.email {
     display: flex;
+    align-items: flex-end;
     overflow: hidden;
     font-size: 15px;
     font-weight: bold;
     color: #797979;
+}
+.header_container_pc .menu .menu_list .my .my_list li.email img {
+    margin-right: 2px;
+    width: 17px;
 }
 </style>

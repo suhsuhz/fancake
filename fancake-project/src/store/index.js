@@ -12,7 +12,7 @@ const store = new vuex.Store({
         userInfo: "",
         // user pforile
         profile: {
-            imageLink: require('@/assets/images/common/default_profile.png'),
+            imageLink: require('@/assets/images/common/default_profile.svg'),
             name: "",
             email: "",
             nick: "",
@@ -29,7 +29,7 @@ const store = new vuex.Store({
         },
         team: {
             info: {
-                profileImageLink: require('@/assets/images/common/default_profile.png'),
+                profileImageLink: require('@/assets/images/common/default_profile.svg'),
                 description : "", 
                 followed : "",
                 phoneNumber : "",
