@@ -25,7 +25,9 @@
             <div :class="[$style.profile_container_pc]" v-if="(actionProductList.total > 0)">
                 <div :class="[$style.profile_item]" v-for="(item, index) in actionProductList.list" :key="index">
                     <div :class="[$style.img_section]">
-                        <img :class="[$style.main_img]" :src="item.cover_image_link" alt="앨범이미지"/>
+                        <div :class="[$style.main_img_section]">
+                            <img :class="[$style.main_img]" :src="item.cover_image_link" alt="앨범이미지"/>
+                        </div>
                         <a :href="item.product_link" target="_blank"><img :class="[$style.outlink_img]" src="@/assets/images/main/out_link.png" alt="링크"/></a>
                         <span :class="[$style.profile_img]">
                             <img :src="item.artist.profile_image_link" alt="프로필이미지"/>
@@ -56,7 +58,9 @@
             <div :class="[$style.profile_container_pc]" v-if="(actionHotProductList.total > 0)">
                 <div :class="[$style.profile_item]" v-for="(item, index) in actionHotProductList.list" :key="index">
                     <div :class="[$style.img_section]">
-                        <img :class="[$style.main_img]" :src="item.cover_image_link" alt="앨범이미지"/>
+                        <div :class="[$style.main_img_section]">
+                            <img :class="[$style.main_img]" :src="item.cover_image_link" alt="앨범이미지"/>
+                        </div>
                         <a :href="item.product_link" target="_blank"><img :class="[$style.outlink_img]" src="@/assets/images/main/out_link.png" alt="링크"/></a>
                         <span :class="[$style.profile_img]">
                             <img :src="item.artist.profile_image_link" alt="프로필이미지"/>
@@ -245,13 +249,21 @@ input[type="checkbox"] {
     width: 36px;
     cursor: pointer;
 }
-.profile_item .img_section .main_img {
+.profile_item .img_section .main_img_section {
     width: 100%;
     height: 100%;
     border-top: 1px solid var(--background-grey-color);
     border-left: 1px solid var(--background-grey-color);
     border-right: 1px solid var(--background-grey-color);
     border-radius: 15px 15px 0 0;
+    overflow: hidden;
+}
+.profile_item .img_section .main_img {
+    width: 100%;
+    height: 100%;
+}
+.profile_item .img_section .main_img:hover {
+    transform: scale(1.1);
 }
 .profile_item .img_section .profile_img {
     position: absolute;
