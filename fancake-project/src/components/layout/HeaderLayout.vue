@@ -3,7 +3,7 @@
         <!-- pc -->
         <div :class="[$style.header_container_pc]">
             <article :class="[$style.logo]">
-                <router-link to="/main"><img src="@/assets/images/common/head_logo.png" alt="myfancake 로고" /></router-link>
+                <router-link to="/main" class="cur-pointer"><img src="@/assets/images/common/head_logo.png" alt="myfancake 로고" /></router-link>
             </article>
             <article :class="$style['menu']">
                 <ul :class="$style['list']">
@@ -173,7 +173,7 @@ export default {
 }
 </script>
 <style scoped>
-.header-menu-list:hover, .header-menu-list.on {
+.header-menu-list:hover {
     color: var(--main-color);
 }
 .main_header {
@@ -393,7 +393,7 @@ export default {
 }
 .header_container_pc .menu .menu_list .search input[type='search'] {
     padding: 10px 35px 10px 15px;
-    border: 1px solid #c7c7c7;
+    border: 2px solid #c7c7c7;
     border-radius: 5px;
 }
 

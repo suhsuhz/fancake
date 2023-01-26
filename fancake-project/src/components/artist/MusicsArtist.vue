@@ -61,7 +61,7 @@
         </article>
         <article :class="[$style.follow]">
             <div :class="[$style.title]">아티스트 명</div>
-            <div :class="[$style.button]">Follow</div>
+            <div class="cur-pointer" :class="[$style.button]">Follow</div>
             <ul :class="[$style.follow_list]">
                 <!-- 추후 정리해서 주실 예정. 아마도 프로필 이미지 + 닉네임 -->
                 <li>test</li>
@@ -109,7 +109,10 @@
 }
 .musics .item {
     margin: 0 auto;
-    background: violet;
+    background: skyblue;
+}
+.musics .item {
+    cursor: pointer;
 }
 .musics .item img {
     width: 166px;
@@ -152,9 +155,6 @@
     color: var(--main-color);
     border: 1px solid var(--border-grey-color);
     border-radius: 5px;
-}
-.follow .button:hover {
-    cursor: pointer;
 }
 .follow .follow_list {
     margin-top: 24px;

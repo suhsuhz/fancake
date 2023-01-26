@@ -5,8 +5,8 @@
                 <img src="" alt="배너이미지"/>
             </section>
             <section class="artist_tap_section">
-                <span class="tap_button"><router-link to="/artist/musics">아트</router-link></span>
-                <span class="tap_button">Social</span>
+                <span class="tap_button cur-pointer"><router-link to="/artist/musics">아트</router-link></span>
+                <span class="tap_button cur-pointer">Social</span>
             </section>
             <router-view></router-view> 
         </div>
@@ -47,8 +47,7 @@
     text-align: center;
     font-weight: bold;
 }
-.artist_tap_section .tap_button.on, .artist_tap_section .tap_button:hover {
+.artist_tap_section .tap_button:hover {
     color: var(--main-color);
-    cursor: pointer;
 }
 </style>
