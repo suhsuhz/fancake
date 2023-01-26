@@ -212,11 +212,6 @@ input[type="checkbox"] {
     margin-bottom: 54px;
     text-align: center;
 }
-.product_section .title:hover {
-    cursor: pointer;
-    text-decoration: underline;
-
-}
 .product_section .h3 {
     margin-bottom: 12px;
     color: var(--main-color);
@@ -293,6 +288,10 @@ input[type="checkbox"] {
     font-size: 18px;
     font-weight: 500;
     text-align: center;
+}
+.profile_item .info_section .title:hover {
+    cursor: pointer;
+    text-decoration: underline;
 }
 .profile_item .info_section .name {
     display: flex;
