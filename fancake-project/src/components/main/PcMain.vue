@@ -121,7 +121,7 @@ input[type="checkbox"][name='like'] + label {
     display: block;
     width: 18px;
     height: 17px;
-    margin-right: 7px;
+    margin-right: 2px;
     background: url('@/assets/images/common/ic_heart_off.png') no-repeat 0 0px / contain;
 }
 
