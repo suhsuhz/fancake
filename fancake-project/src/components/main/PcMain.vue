@@ -72,7 +72,7 @@
                     </div>
                     <div :class="[$style.bottom_section]">
                         <div :class="[$style.like]">
-                            <input :class="[$style.like]" name="like" :id="index" type="checkbox"/><label :for="index"></label>
+                            <input :class="[$style.like]" name="like" :id="index +'hot' " type="checkbox"/><label :for="index + 'hot'"></label>
                             <span>{{ item.wanted }}</span>
                         </div>
                         <div :class="[$style.price]"><span :class="[$style.currency]">{{ item.currency }}</span>{{ item.price }}</div>
