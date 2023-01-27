@@ -53,6 +53,12 @@ const store = new vuex.Store({
         },
         hotProductList: {
             
+        },
+        musicList: {
+
+        },
+        followList: {
+            
         }
     },
     mutations,

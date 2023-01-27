@@ -146,12 +146,115 @@
                 </div>
             </div>
         </section>
-        <section :class="[$style.sub5, $style.box]">
+        <!-- <section :class="[$style.sub5, $style.box]">
             <div :class="[$style.width_90per, $style.item]">
                 <div :class="[$style.small_line]"><hr/></div>
                 <div :class="[$style.sub_title]">아티스트를 위한 Fancake</div>
                 <div :class="[$style.title]">프로세스</div>
                 <div :class="[$style.image_section]"><img src="@/assets/images/intro/process.png" alt="프로세스"/></div>
+            </div>
+        </section> -->
+        <section :class="[$style.sub5, $style.box]">
+            <div :class="[$style.width_90per, $style.item]">
+                <div :class="[$style.small_line]"><hr/></div>
+                <div :class="[$style.sub_title]">아티스트를 위한 Fancake</div>
+                <div :class="[$style.title]">프로세스</div>
+                <div :class="[$style.image_section]">
+                    <div :class="[$style.bundle]">
+                        <div :class="[$style.top]">
+                            <div :class="[$style.circle]">
+                                <img src="" alt="악수"/>
+                            </div>
+                        </div>
+                        <div :class="[$style.line]">
+                            <span :class="[$style.dot]"></span>
+                        </div>
+                        <div :class="[$style.text]">
+                            <div :class="[$style.title]">계약</div>
+                            <div :class="[$style.desc]">
+                                계약조건 Exclusive<br/>
+                                composite<br/>
+                                MG 방식 등 협의
+                            </div>
+                        </div>
+                    </div>
+                    <div :class="[$style.bundle]">
+                        <div :class="[$style.top]">
+                            <div :class="[$style.circle]">
+                                <img src="" alt="메모"/>
+                            </div>
+                        </div>
+                        <div :class="[$style.line]">
+                            <span :class="[$style.dot]"></span>
+                        </div>
+                        <div :class="[$style.text]">
+                            <div :class="[$style.title]">준비</div>
+                            <div :class="[$style.desc]">
+                                팬케이크 계정 생성<br/>
+                                및 NFT지갑 생성
+                            </div>
+                        </div>
+                    </div>
+                    <div :class="[$style.bundle]">
+                        <div :class="[$style.top]">
+                            <div :class="[$style.circle]">
+                                <img src="" alt="NFT"/>
+                            </div>
+                        </div>
+                        <div :class="[$style.line]">
+                            <span :class="[$style.dot]"></span>
+                        </div>
+                        <div :class="[$style.text]">
+                            <div :class="[$style.title]">NFT 상품생성</div>
+                            <div :class="[$style.desc]">
+                                NFT 상품화 대상<br/>
+                                협의 및 민팅 작업
+                            </div>
+                        </div>
+                    </div>
+                    <div :class="[$style.bundle]">
+                        <div :class="[$style.top]">
+                            <div :class="[$style.circle]">
+                                <img src="" alt="카트"/>
+                            </div>
+                        </div>
+                        <div :class="[$style.line]">
+                            <span :class="[$style.dot]"></span>
+                        </div>
+                        <div :class="[$style.text]">
+                            <div :class="[$style.title]">거래 개시</div>
+                            <div :class="[$style.desc]">
+                                거래소 상장
+                            </div>
+                        </div>
+                    </div>
+                    <div :class="[$style.bundle]">
+                        <div :class="[$style.top]">
+                            <div :class="[$style.circle]">
+                                <img src="" alt="수익"/>
+                            </div>
+                        </div>
+                        <div :class="[$style.line]">
+                            <span :class="[$style.dot]"></span>
+                        </div>
+                        <div :class="[$style.text]">
+                            <div :class="[$style.title]">수익 정산</div>
+                            <div :class="[$style.desc]">
+                                수익금<br/>
+                                주기별 정산
+                            </div>
+                        </div>
+                    </div>
+                    <div :class="[$style.bundle]">
+                        <div :class="[$style.top]">
+                        </div>
+                        <div :class="[$style.line]">
+                            <span :class="[$style.dot]"></span>
+                        </div>
+                        <div :class="[$style.text]">
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         <section :class="[$style.sub6, $style.box]">
@@ -271,6 +374,11 @@ hr {
     flex-direction: column;
     padding: 36px 0 130px 0;
 }
+@media screen and (max-width:768px) {
+    .box:first-child .item {
+        padding-top: 0;
+    }
+}
 .box .small_line {
     display: flex;
     justify-content: center;
@@ -306,6 +414,11 @@ hr {
     justify-content: center;
     margin-top: 50px;
 }
+@media screen and (max-width:768px) {
+    .main {
+        margin-top: 0;
+    }
+}
 .main .title {
     display: flex;
     justify-content: space-between;
@@ -337,6 +450,11 @@ hr {
 }
 .sub2 .desc .content .subject {
     margin: 27px 0;
+}
+@media screen and (max-width:768px) {
+    .sub2 .desc .content .subject {
+        margin: 10px 0;
+    }
 }
 .sub2 .desc .content img {
     margin: 0 auto;
@@ -404,19 +522,113 @@ hr {
 .sub5 {
     display: flex;
     justify-content: center;
-    background: #ece9e2 !important;
-    color: var(--font-black-color) !important;
+    /*background: #ece9e2 !important;
+    color: var(--font-black-color) !important; */
     overflow: hidden;
 }
-.sub5 .item {
-    padding-bottom: 0;
-}
+/*
+
 .sub5 .title {
     margin-bottom: 0;
 }
 .sub5 .image_section img {
     width: 100%;
 }
+*/
+
+
+
+.sub5 .item .image_section {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0;
+}
+.sub5 .item .image_section .bundle {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 19.5%;
+}
+.sub5 .item .image_section .bundle .top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 250px;
+}
+.sub5 .item .image_section .bundle .top .circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    aspect-ratio: auto 1/1;
+    background-color: #fff;
+    color: #fff;
+    border-radius: 50%;
+}
+.sub5 .item .image_section .bundle .top .circle img {
+    width: 50%;
+    aspect-ratio: auto 1/1;
+    background: blue;
+}
+.sub5 .item .image_section .bundle:last-child {
+    width: 2.5%;
+}
+.sub5 .item .image_section .bundle .line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 3px;
+    margin: 30px;
+    background-color: #fff;
+}
+.sub5 .item .image_section .bundle:last-child .line {
+    margin-top: 13px;
+    border-top: 20px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 25px solid #fff;
+    background-color: transparent;
+}
+.sub5 .item .image_section .bundle .line .dot {
+    width: 15px;
+    height: 15px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.sub5 .item .image_section .bundle .text .title {
+    margin-bottom: 20px;
+    font-size: 26px;
+}
+@media screen and (max-width:768px) {
+    .sub5 .item .image_section {
+        flex-direction: column;
+    }
+    .sub5 .item .image_section .bundle {
+        width: 100%;
+        margin-top: 25px;
+    }
+    .sub5 .item .image_section .bundle:last-child {
+        display: none;
+    }
+    .sub5 .item .image_section .bundle .top { 
+        height: 200px;   
+    }
+    .sub5 .item .image_section .bundle .top .circle {
+        width: 50%;
+    }
+    .sub5 .item .image_section .bundle .line {
+        width: 3px;
+        height: 30px;
+        margin: 0;
+    }
+}
+
+
+
+
 .sub6 .desc {
     display: flex;
     justify-content: space-between;
@@ -463,8 +675,15 @@ hr {
     }
     .desc .content {
         width: 100% !important;
-        margin-top: 20px;
+        margin-bottom: 50px;
     }
+    .desc .content:last-child {
+        margin-bottom: 0;
+    }
+    .sub6 .desc .desc_line {
+        margin: 8px 0;
+    }
+    
     /* sub */
     .sub3 .desc .desc_icon {
         margin: 20px 0;

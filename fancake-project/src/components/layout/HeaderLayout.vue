@@ -72,7 +72,7 @@
                         <img :class="[$style.list_logo]" src="@/assets/images/common/head_logo.png" alt="myfancake 로고" />
                         <img :class="[$style.close]" src="@/assets/images/common/ic_close.png" alt="닫기" @click="closeMobileMenu"/>
                     </article>
-                    <article :class="[$style.email]">
+                    <article :class="[$style.email]" v-if="actionProfileForHeader.email">
                         <img src="@/assets/images/common/ic_mail.svg"/>{{ actionProfileForHeader.email }}
                     </article>
                     <article :class="[$style.content]">

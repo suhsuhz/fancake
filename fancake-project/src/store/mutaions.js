@@ -66,10 +66,8 @@ export default {
         state.team.info.teamName = data.team_name;
 
         if(data.banner_image_link) state.team.banner.bannerImageLink = setPathUrl(data.banner_image_link);
-        console.log(state.team);
     },
     SET_ARTIST_IMAGE(state, image) {
-        console.log(image);
         state.team.info.profileImageLink = setPathUrl(image);
     },
     SET_ARTIST_BANNER(state, image) {
@@ -84,5 +82,13 @@ export default {
                 state.productList = data;
             break;
         }
+    },
+    /* *** artist product *** */
+    SET_ARTIST_MUSICS(state, data) {
+        state.musicList = data;
+    },
+    SET_ARTIST_FOLLOWS(state, data) {
+        state.followList = data;
     }
+        
 }

@@ -73,6 +73,47 @@
     </section>
 </template>
 
+<script>
+import { jsonStringfy } from "@/assets/js/common.js";
+
+export default {
+    computed: {
+        actionGetError() {
+            return (this.$store.state.errorData) ? jsonStringfy(this.$store.state.errorData) : ""; 
+        },
+        actionArtistMusics() {
+            return this.$store.state.musicList; 
+        },
+        actionArtistFollows() {
+            return this.$store.state.followList; 
+        }
+    },
+    created() {
+        this.$autoLogout();
+    },
+    async mounted() {
+        this.$showLoadingBar(true);
+        await this.$store.dispatch('FETCH_PROFILE_USER');
+        this.$showLoadingBar(false);
+        
+        this.profile.name = this.actionUserProfile.name;
+        this.profile.email = this.actionUserProfile.email;
+        this.nick = this.actionUserProfile.nick;
+    },
+    destroyed() {
+        this.$loginTimeUpdate();
+    },
+    data() {
+        return {
+            
+        }
+    },
+    methods: {
+       
+    }
+}
+</script>
+
 <style scoped>
 .artist_content_section {
     display: flex;

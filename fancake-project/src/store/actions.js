@@ -186,7 +186,7 @@ export default {
             commit('SET_ERROR', error);
         })
     },
-    FETCH_PRODUCT_LIST({ commit }, info) {
+    FETCH_PRODUCT_LIST({ commit }, info) { // 전체중에 조건에 따라 제품목록 가져오기
         return axiosGet(`${process.env.VUE_APP_URL_GET_PRODUCT_LIST}?sort=${info.sort}&offset=${info.offset}&limit=${info.limit}`)
         .then(res => {
             if(res.data) {
@@ -200,5 +200,33 @@ export default {
             commit('SET_ERROR', error);
         })
     },
+
+    // ***************************** //
+    // ****** artist product ******* //
+    // ***************************** //
+    FETCH_ARTIST_MUSICS({ commit }) { // 해당 아티스트의 제품 목록 불러오기
+        return axiosGet(process.env.VUE_APP_URL_ARTIST_MUSICS)
+        .then(res => {
+            if(res.data) {
+                // 계정정보
+                //commit('SET_ARTIST_MUSICS', data);
+            }
+        })
+        .catch(error => {
+            commit('SET_ERROR', error);
+        })
+    },
+    FETCH_ARTIST_FOLOWS({ commit }) { // 해당 아티스트의 팔로워 불러오기
+        return axiosGet(process.env.VUE_APP_URL_ARTIST_FOLLOWS)
+        .then(res => {
+            if(res.data) {
+                // 계정정보
+                //commit('SET_ARTIST_FOLLOWS', data);
+            }
+        })
+        .catch(error => {
+            commit('SET_ERROR', error);
+        })
+    }
 
 }
