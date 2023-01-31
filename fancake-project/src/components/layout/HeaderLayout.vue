@@ -397,17 +397,24 @@ export default {
     position: relative;
 }
 .header_container_pc .menu .menu_list .search input[type='search'] {
-    padding: 10px 35px 10px 15px;
+    /* padding: 10px 35px 10px 15px;
     border: 2px solid #c7c7c7;
-    border-radius: 5px;
+    border-radius: 5px; */
+    padding: 10px 35px 10px 15px;
+    border: 2px solid var(--main-color);
+    height: 51px;
+    line-height: 1.3;
+    border: 1px solid var(--main-color);
+    border-radius: 51px;
+    font-size: 15px;
+    font-weight: 300;
 }
-
 .header_container_pc .menu .menu_list .search img {
     width: 25px;
     height: auto;
     position: absolute;
     right: 10px;
-    top: 10px;
+    top: 12px;
 }
 .header_container_pc .menu .menu_list .division img {
     height: 32px;

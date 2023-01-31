@@ -26,6 +26,7 @@ import Artist from '@/components/profile/ArtistProfile.vue';
 // artist
 import Musics from '@/components/artist/MusicsArtist.vue';
 // product 
+import ProductDetail from '@/components/product/DetailProduct.vue';
 
 Vue.use(VueRouter);
 
@@ -82,6 +83,10 @@ export const router = new VueRouter({
         {
             path: '/product',
             component: ProductView,
+            children: [
+                //{ path: 'list', component:  productList }, // 제품 목록
+                { path: 'detail', component:  ProductDetail }, // 제품 상세
+            ]
         },
         // about 페이지
         {
@@ -98,7 +103,7 @@ export const router = new VueRouter({
             path: '/artist',
             component: ArtistView,
             children: [
-                { path: 'musics', component:  Musics } // 아티스트 제품 목록
+                { path: 'musics', component:  Musics }, // 아티스트 제품 목록
             ]
         },
     ]

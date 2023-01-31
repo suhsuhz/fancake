@@ -231,7 +231,7 @@ input[type="checkbox"] {
 .profile_item .img_section {
     position: relative;
     /*height: 80vw;*/
-    aspect-ratio: 2.9 / 3; /* 16:9 비율 지정 */
+    aspect-ratio: 2.9 / 3; /* 비율 지정 */
 }
 .profile_item .img_section .outlink_img {
     position: absolute;

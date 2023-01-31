@@ -16,6 +16,11 @@
     color: var(--main-color);
 }
 /* ** [공용] ** */
+.container-align-center {
+    width: 90%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
 .fit-content {
     width: fit-content;
 }
@@ -24,6 +29,21 @@
 }
 .width-pc70-mo100 {
     width: 70%;
+}
+.scrollbar1::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+}
+.scrollbar1::-webkit-scrollbar-thumb {
+    background-color: var(--main-color);
+    border-radius: 10px;
+    background-clip: padding-box;
+    border: 2px solid transparent;
+}
+.scrollbar1::-webkit-scrollbar-track {
+    background-color: #fff;
+    border: 2px solid #f0f0f0;
+    border-radius: 10px;
 }
 @media screen and (max-width:768px) {
     .width-pc70-mo100 {

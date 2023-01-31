@@ -17,7 +17,7 @@
         <article class="article">
             <div class="content">
                 <input type="checkbox" name="check" id="saveLogin" v-model="isSaveLogin"/><label class="cur-pointer" for="saveLogin"></label>
-                <span class="checkbox-desc cur-pointer">로그인 상태 유지</span>
+                <span @click="saveLogin" class="checkbox-desc cur-pointer">로그인 상태 유지</span>
             </div>
         </article>
         <article class="article link">
@@ -69,6 +69,10 @@ export default {
     mounted() {
     },
     methods: {
+        // 로그인 상태 유지 글씨 클릭했을 때
+        saveLogin() {
+            (this.isSaveLogin) ? this.isSaveLogin = false : this.isSaveLogin = true;
+        },
         /* ** 로그인 버튼 눌렀을 때 ** */
         async goLogin() {
             this.$showLoadingBar(true);

@@ -39,7 +39,7 @@
                     </div>
                     <div :class="[$style.bottom_section]">
                         <div :class="[$style.like]">
-                            <input :class="[$style.like]" name="like" :id="index" type="checkbox"/><label :for="index"></label>
+                            <input @click="setLike($event)" :class="[$style.like]" name="like" :id="index" type="checkbox"/><label :for="index"></label>
                             <span>{{ item.wanted }}</span>
                         </div>
                         <div :class="[$style.price]"><span :class="[$style.currency]">{{ item.currency }}</span>{{ item.price }}</div>
@@ -72,7 +72,7 @@
                     </div>
                     <div :class="[$style.bottom_section]">
                         <div :class="[$style.like]">
-                            <input :class="[$style.like]" name="like" :id="index +'hot' " type="checkbox"/><label :for="index + 'hot'"></label>
+                            <input @click="setLike($event)" :class="[$style.like]" name="like" :id="index +'hot' " type="checkbox"/><label :for="index + 'hot'"></label>
                             <span>{{ item.wanted }}</span>
                         </div>
                         <div :class="[$style.price]"><span :class="[$style.currency]">{{ item.currency }}</span>{{ item.price }}</div>
@@ -84,7 +84,7 @@
 </template>
 
 <script>
-import { jsonStringfy } from "@/assets/js/common.js";
+import { jsonStringfy, isLogin } from "@/assets/js/common.js";
 
 export default {
     computed: {
@@ -102,13 +102,14 @@ export default {
         //this.globalMethods.$loadingBar(false);
 //        this.$loadingBar(true);
     },
-    data() {
-        return {
-           
-
+    methods: {
+        setLike(event) {
+            if (!isLogin()) {
+                alert("로그인 후 이용해주세요");
+                event.target.checked = false;
+            }
         }
-    },
-
+    }
 }
 </script>
 

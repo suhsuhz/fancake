@@ -2,7 +2,7 @@
     <div class="background" :class="[$style.background_color]">
         <header-layout></header-layout>
         <div :class="[$style.wrapper]">
-            product page
+            <router-view></router-view>
         </div>
         <footer-layout></footer-layout>
     </div>
