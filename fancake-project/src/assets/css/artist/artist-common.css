@@ -1,3 +1,10 @@
-.artist_content {
-    max-width: 975px;
+.artist_container .title_area {
+    width: 90%;
+    max-width: 1280px;
+    margin: 0 auto 20px auto;
+    padding: 20px 10px;
+    border-top: 1px solid var(--background-grey-color);
+    border-bottom: 1px solid var(--background-grey-color);
+    font-size: 20px;
+    font-weight: bold;
 }

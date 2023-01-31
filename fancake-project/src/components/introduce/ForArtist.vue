@@ -163,7 +163,7 @@
                     <div :class="[$style.bundle]">
                         <div :class="[$style.top]">
                             <div :class="[$style.circle]">
-                                <img src="" alt="악수"/>
+                                <img src="@/assets/images/intro/ic_contract_gray.svg" alt="악수"/>
                             </div>
                         </div>
                         <div :class="[$style.line]">
@@ -181,7 +181,7 @@
                     <div :class="[$style.bundle]">
                         <div :class="[$style.top]">
                             <div :class="[$style.circle]">
-                                <img src="" alt="메모"/>
+                                <img src="@/assets/images/intro/ic_document_gray.svg" alt="메모"/>
                             </div>
                         </div>
                         <div :class="[$style.line]">
@@ -198,7 +198,7 @@
                     <div :class="[$style.bundle]">
                         <div :class="[$style.top]">
                             <div :class="[$style.circle]">
-                                <img src="" alt="NFT"/>
+                                <img src="@/assets/images/intro/ic_smartphone_gray.svg" alt="NFT"/>
                             </div>
                         </div>
                         <div :class="[$style.line]">
@@ -215,7 +215,7 @@
                     <div :class="[$style.bundle]">
                         <div :class="[$style.top]">
                             <div :class="[$style.circle]">
-                                <img src="" alt="카트"/>
+                                <img src="@/assets/images/intro/ic_shopping_gray.svg" alt="카트"/>
                             </div>
                         </div>
                         <div :class="[$style.line]">
@@ -231,7 +231,7 @@
                     <div :class="[$style.bundle]">
                         <div :class="[$style.top]">
                             <div :class="[$style.circle]">
-                                <img src="" alt="수익"/>
+                                <img src="@/assets/images/intro/ic_monetization_gray.svg" alt="수익"/>
                             </div>
                         </div>
                         <div :class="[$style.line]">
@@ -562,14 +562,15 @@ hr {
     align-items: center;
     width: 80%;
     aspect-ratio: auto 1/1;
+    background-color: var(--main-color);
+    border: 5px solid #fff;
     background-color: #fff;
     color: #fff;
     border-radius: 50%;
 }
 .sub5 .item .image_section .bundle .top .circle img {
-    width: 50%;
+    height: 40%;
     aspect-ratio: auto 1/1;
-    background: blue;
 }
 .sub5 .item .image_section .bundle:last-child {
     width: 2.5%;

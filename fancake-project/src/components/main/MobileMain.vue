@@ -172,7 +172,7 @@ input[type="checkbox"] {
 .banner_section {
     background: url(@/assets/images/main/pc_banner.jpg) no-repeat center 0;
     height: 874px;
-    margin-bottom: 95px;
+    margin-bottom: 54px;
 }
 .banner_text {
     display: flex;

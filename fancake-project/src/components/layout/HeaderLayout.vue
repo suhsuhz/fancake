@@ -363,7 +363,7 @@ export default {
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
-    padding: 45px 0;
+    padding: 35px 0 25px 0;
 }
 .header_container_pc .logo img {
     width: 220px;

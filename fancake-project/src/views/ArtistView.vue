@@ -34,10 +34,5 @@
   .background_color {
     background-color: #fff;
   }
-  
-  .wrapper {
-    width: 90%;
-    max-width: 1280px;
-    margin: 0 auto;
-  }
+
   </style>
