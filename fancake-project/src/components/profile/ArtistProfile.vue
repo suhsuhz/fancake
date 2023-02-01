@@ -42,7 +42,7 @@
                         <div class="error-msg">{{ errorMsg.artist.description }}</div>
                     </div>
                     <div class="substance_bottom">
-                        <span class="bt-main" @click="setArtist">저장</span>
+                        <span class="bt-main cur-pointer" @click="setArtist">저장</span>
                     </div>
                 </section>
             </article>
@@ -67,10 +67,10 @@
                                 <p>Select or drag a file | JPEG, PNG</p>
                             </div>
                         </div>
-                        <img class="banner_img" :src="actionBannerInfo.bannerImageLink" alt="배너이미지" v-if="actionBannerInfo.bannerImageLink"/>
+                        <img class="banner_img" :src="banner.previewBanner" alt="배너이미지" v-if="banner.previewBanner"/>
                     </div>
                     <div class="substance_bottom">
-                        <span class="bt-main">저장</span>
+                        <span class="bt-main cur-pointer" @click="this.saveBannerFile">저장</span>
                     </div>
                 </section>
             </article>
@@ -107,6 +107,7 @@ export default {
         this.artist.teamName = this.actionTeamProfile.teamName;
         this.artist.phoneNumber = this.actionTeamProfile.phoneNumber;
         this.artist.description = this.actionTeamProfile.description;
+        this.banner.previewBanner = this.actionBannerInfo.bannerImageLink;
     },
     destroyed() {
         this.$loginTimeUpdate();
@@ -119,6 +120,11 @@ export default {
                 teamName: "",
                 phoneNumber: "",
                 description: ""
+            },
+            banner: {
+                previewBanner: "",
+                files: "",
+                ev: ""
             },
             errorMsg: {
                 artist: {
@@ -163,8 +169,13 @@ export default {
             event.preventDefault();
             this.isDragged = false;
             //console.log(event.target.files[0]);
-            const files = event.dataTransfer.files;
-            this.changeBannerFile(event, files[0]);
+            this.banner.files = event.dataTransfer.files;
+            this.banner.ev = event;
+            //this.changeBannerFile(event, files[0]);
+            this.previewFile(this.banner.files[0]);
+        },
+        saveBannerFile() {
+            this.changeBannerFile(this.banner.ev, this.banner.files[0]);
         },
         // 배너 변경 버튼 클릭
         openBannerFile() {
@@ -224,8 +235,11 @@ export default {
         },
         // 배너이미지 변경
         addBannerFile(e) {
-            const file = e.target.files[0];
-            this.changeBannerFile(e, file);
+            /* const file = e.target.files[0];
+            this.changeBannerFile(e, file); */
+            this.banner.files = e.target.files;
+            this.banner.ev = e;
+            this.previewFile(this.banner.files[0]);
         },
         async changeBannerFile(e, file) {
             //const file = e.target.files[0];
@@ -280,6 +294,18 @@ export default {
             }
 
             return message;
+        },
+        // 이미지 미리보기
+        previewFile(file) {
+            const fileData = (data) => {
+                this.banner.previewBanner = data;
+                // this.preview = data
+            }
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.addEventListener("load", function() {
+                fileData(reader.result);
+            }, false);
         },
         // 계정정보 수정 (팀명, 전화번호, 팀설명)
         async setArtist() {

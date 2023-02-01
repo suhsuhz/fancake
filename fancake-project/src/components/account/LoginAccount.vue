@@ -87,9 +87,11 @@ export default {
             const error = this.actionGetError;
             if(Object.keys(error).length < 1) { // 에러가 없으면 로그인 처리된 것
                 if(this.preveRoutePath) {
+                    if(this.preveRoutePath.fullPath == '/') this.$router.push('/main');
                     this.$router.push(this.preveRoutePath.fullPath);
                 } else {
-                    if(Object.keys(error).length < 1) this.$router.go(-1);
+                    this.$router.push('/main');
+                    //if(Object.keys(error).length < 1) this.$router.go(-1);
                 }
             } 
                     

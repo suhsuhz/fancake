@@ -460,6 +460,7 @@ export default {
     font-size: 15px;
     font-weight: bold;
     color: #797979;
+    line-height: 1.2;
 }
 .header_container_pc .menu .menu_list .my .my_list li.email img {
     margin-right: 2px;
